@@ -26,5 +26,9 @@ namespace FinalProject.Controllers
 
             return View();
         }
+        public ActionResult ManageProducts()
+        {
+            return View();
+        }
     }
 }
