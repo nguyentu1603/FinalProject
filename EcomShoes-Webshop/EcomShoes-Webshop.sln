@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcomShoes-Webshop", "EcomShoes-Webshop\EcomShoes-Webshop.csproj", "{355E2994-60D2-429E-B622-5F0D372F731E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcomShoes-Webshop.Tests", "EcomShoes-Webshop.Tests\EcomShoes-Webshop.Tests.csproj", "{02446B80-B057-4118-ACCA-72C8A969DC0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{355E2994-60D2-429E-B622-5F0D372F731E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{355E2994-60D2-429E-B622-5F0D372F731E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{355E2994-60D2-429E-B622-5F0D372F731E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355E2994-60D2-429E-B622-5F0D372F731E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02446B80-B057-4118-ACCA-72C8A969DC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02446B80-B057-4118-ACCA-72C8A969DC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02446B80-B057-4118-ACCA-72C8A969DC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02446B80-B057-4118-ACCA-72C8A969DC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
