@@ -158,8 +158,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageProductsController.cs" />
+    <Compile Include="Controllers\NotFoundController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +177,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-reset.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\about.css" />
@@ -183,6 +192,24 @@
     <Content Include="Content\css\shop.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\style7.css" />
+    <Content Include="Content\DT_bootstrap.css" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\3.jpeg" />
@@ -223,10 +250,20 @@
     <Content Include="Content\images\s8.jpg" />
     <Content Include="Content\images\s9.jpg" />
     <Content Include="Content\images\search.png" />
+    <Content Include="Content\images\sort_asc.png" />
+    <Content Include="Content\images\sort_both.png" />
+    <Content Include="Content\images\sort_desc.png" />
     <Content Include="Content\images\t1.jpg" />
     <Content Include="Content\images\t2.jpg" />
     <Content Include="Content\images\t3.jpg" />
     <Content Include="Content\images\t4.jpg" />
+    <Content Include="Content\nav-expand.png" />
+    <Content Include="Content\slide.jpg" />
+    <Content Include="Content\slide0.png" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\summernote\summernote-bs3.css" />
+    <Content Include="Content\summernote\summernote.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\font\modernizr-2.6.2.min.js" />
@@ -251,6 +288,14 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -303,9 +348,14 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\CheckOut\Index.cshtml" />
+    <Content Include="Views\ManageProducts\Index.cshtml" />
+    <Content Include="Views\ProductDetail\Index.cshtml" />
+    <Content Include="Views\NotFound\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

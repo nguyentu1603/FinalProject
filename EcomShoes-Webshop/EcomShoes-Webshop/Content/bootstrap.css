@@ -6198,7 +6198,7 @@ body.modal-open,
     padding-bottom: 30px;
   }
   .carousel-indicators {
-    bottom: 20px;
+    bottom: 0px;
   }
 }
 

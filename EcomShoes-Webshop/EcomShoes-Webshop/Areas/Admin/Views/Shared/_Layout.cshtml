@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-reset.css" rel="stylesheet" />
+    <link href="~/Content/DT_bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/style-responsive.css" rel="stylesheet" />
+
+
+</head>
+<body>
+ 
+        <div class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Ẩn / Hiện" data-placement="right" class="icon-reorder tooltips"></div>
+            </div>
+            <!--logo start-->
+            <a href="/" class="logo">MANAGE<span>SHOP</span></a>
+            <!--logo end-->
+            @*<div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+                    <ul class="nav top-menu">
+                        <!-- notification dropdown start-->
+                        <li id="header_notification_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="">
+
+                                <i class="icon-bell-alt"></i>
+                                <span class="badge bg-warning">2</span>
+                            </a>
+                            <ul class="dropdown-menu extended notification">
+                                <div class="notify-arrow notify-arrow-yellow"></div>
+                                <li>
+                                    <p class="yellow">Thông báo đơn hàng </p>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span class="label label-danger"><i class="icon-remove"></i></span>
+                                        Server #3 overloaded.
+                                        <span class="small italic">34 mins</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- notification dropdown end -->
+                    </ul>
+                    <!--  notification end -->
+                </div>*@
+            <div class="top-nav ">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu" style="margin-top:10px">
+                
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </div>
+
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li>
+                        <a class="active" href="/">
+                            <i class="icon-laptop"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                  
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="icon-th"></i>
+                                <span>Sản phẩm</span>
+                            </a>
+                            <ul class="sub">
+                                <li>@Html.ActionLink("Danh mục sản phẩm", "Index", "ManageCategories", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Cập nhập sản phẩm", "Index", "ManageProducts", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="icon-cogs"></i>
+                                <span>Thiết lập khác</span>
+                            </a>
+                            <ul class="sub">
+                                <li>@Html.ActionLink("Giới thiệu", "Index", "ManageAboutShops", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Thông tin liên hệ", "Index", "ManageContacts", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Tin tức dịch vụ", "Index", "ManageNewsServices", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="icon-sitemap"></i>
+                                <span>Thiết lập website</span>
+                            </a>
+                            <ul class="sub">
+                                <li>@Html.ActionLink("Hình ảnh slide", "Index", "ManageSlideImages", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Nhận xét của khách hàng", "Index", "ManageUserComments", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+                    
+                  
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="icon-shopping-cart"></i>
+                                <span>Shop</span>
+                            </a>
+                            <ul class="sub">
+                                <li>@Html.ActionLink("Đơn đặt hàng", "Index", "ManageOrders", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+                    
+                   
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="icon-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <ul class="sub">
+                                <li>@Html.ActionLink("Users", "Index", "ManageUsers", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Roles", "Index", "ManageRoles", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+                 
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+
+    
+
+    <section id="main-content">
+        <section class="wrapper">
+            @RenderBody()
+        </section>
+    </section>
+
+   
+        <footer class="site-footer navbar-fixed-bottom">
+            <div class="text-center">
+                2016 © ManageShop thuộc bản quyền TeamVT.
+                <a href="#" class="go-top">
+                    <i class="icon-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Scripts/jquery.scrollTo.min.js"></script>
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/DT_bootstrap.js"></script>
+    <script src="~/Scripts/common-scripts.js"></script>
+    <script src="~/Scripts/editable-table.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+        jQuery(document).ready(function () {
+            EditableTable.init();
+        });
+    </script>
+</body>
+</html>
