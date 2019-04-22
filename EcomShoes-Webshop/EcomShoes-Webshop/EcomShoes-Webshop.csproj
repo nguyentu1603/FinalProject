@@ -158,12 +158,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\CreateProductController.cs" />
+    <Compile Include="Controllers\DeleteProductController.cs" />
+    <Compile Include="Controllers\EditProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageProductsController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
@@ -288,14 +287,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Content\font-awesome\font\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\font\fontawesome-webfont.woff" />
     <Content Include="Content\font-awesome\font\FontAwesome.otf" />
-    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -352,10 +347,13 @@
     <Content Include="Views\ManageProducts\Index.cshtml" />
     <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\NotFound\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\CreateProduct\Index.cshtml" />
+    <Content Include="Views\EditProduct\Index.cshtml" />
+    <Content Include="Views\DeleteProduct\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
