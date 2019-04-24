@@ -163,6 +163,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CreateProductController.cs" />
     <Compile Include="Controllers\DeleteProductController.cs" />
+    <Compile Include="Controllers\EditContactController.cs" />
     <Compile Include="Controllers\EditProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageContactController.cs" />
