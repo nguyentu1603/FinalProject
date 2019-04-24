@@ -160,10 +160,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\ContactDetailController.cs" />
     <Compile Include="Controllers\CreateProductController.cs" />
     <Compile Include="Controllers\DeleteProductController.cs" />
+    <Compile Include="Controllers\EditContactController.cs" />
     <Compile Include="Controllers\EditProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageContactController.cs" />
     <Compile Include="Controllers\ManageProductsController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
@@ -351,6 +354,9 @@
     <Content Include="Views\CreateProduct\Index.cshtml" />
     <Content Include="Views\EditProduct\Index.cshtml" />
     <Content Include="Views\DeleteProduct\Index.cshtml" />
+    <Content Include="Views\ManageContact\Index.cshtml" />
+    <Content Include="Views\ContactDetail\Index.cshtml" />
+    <Content Include="Views\EditContact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
