@@ -359,10 +359,10 @@
     <Content Include="Views\EditContact\Index.cshtml" />
     <Content Include="Views\ManageContact\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\ManageOrder\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ManageOrder\" />
     <Folder Include="Views\OrderDetail\" />
   </ItemGroup>
   <ItemGroup>
