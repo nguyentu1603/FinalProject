@@ -10,18 +10,13 @@
 namespace EcomShoes_Webshop.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class sp_helpdiagrams_Result
     {
-        public int id { get; set; }
-        public int OrderID { get; set; }
-        public int ProductID { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
-        public int Discount { get; set; }
-    
-        public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

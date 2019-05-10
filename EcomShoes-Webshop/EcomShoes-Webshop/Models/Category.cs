@@ -12,16 +12,16 @@ namespace EcomShoes_Webshop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class Category
     {
-        public int id { get; set; }
-        public int OrderID { get; set; }
-        public int ProductID { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
-        public int Discount { get; set; }
+        public Category()
+        {
+            this.Products = new HashSet<Product>();
+        }
     
-        public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
+        public int CategoryID { get; set; }
+        public string NameCategory { get; set; }
+    
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

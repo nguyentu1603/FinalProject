@@ -162,7 +162,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CreateProductController.cs" />
@@ -180,24 +179,51 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactDetail.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataDownyShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDownyShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataDownyShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataDownyShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDownyShop.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>OrderDetailModel.tt</DependentUpon>
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderDetailModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderDetailModel.Context.tt</DependentUpon>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderDetailModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderDetailModel.tt</DependentUpon>
+    <Compile Include="Models\ProductSize.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderDetailModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderDetailModel.edmx</DependentUpon>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DataDownyShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -296,16 +322,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\OrderDetailModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OrderDetailModel.edmx</DependentUpon>
-      <LastGenOutput>OrderDetailModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\OrderDetailModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OrderDetailModel.edmx</DependentUpon>
-      <LastGenOutput>OrderDetailModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\images\Thumbs.db" />
@@ -328,12 +344,22 @@
     <Content Include="Content\font-awesome\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\font\fontawesome-webfont.woff" />
     <Content Include="Content\font-awesome\font\FontAwesome.otf" />
-    <EntityDeploy Include="Models\OrderDetailModel.edmx">
+    <EntityDeploy Include="Models\DataDownyShop.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OrderDetailModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataDownyShop.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\OrderDetailModel.edmx.diagram">
-      <DependentUpon>OrderDetailModel.edmx</DependentUpon>
+    <Content Include="Models\DataDownyShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataDownyShop.edmx</DependentUpon>
+      <LastGenOutput>DataDownyShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataDownyShop.edmx.diagram">
+      <DependentUpon>DataDownyShop.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataDownyShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataDownyShop.edmx</DependentUpon>
+      <LastGenOutput>DataDownyShop.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
