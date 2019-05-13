@@ -17,126 +17,80 @@
 
 </head>
 <body>
-    
-        <div class="header white-bg">
-            <div class="sidebar-toggle-box">
-                <div data-original-title="Ẩn / Hiện" data-placement="right" class="icon-reorder tooltips"></div>
-            </div>
-            <!--logo start-->
-            <a href="/" class="logo">MANAGE<span>SHOP</span></a>
-            <!--logo end-->
-            @*<div class="nav notify-row" id="top_menu">
-                    <!--  notification start -->
-                    <ul class="nav top-menu">
-                        <!-- notification dropdown start-->
-                        <li id="header_notification_bar" class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="">
+    <div class="header white-bg">
+        <div class="sidebar-toggle-box">
+            <div data-original-title="Ẩn / Hiện" data-placement="right" class="icon-reorder tooltips"></div>
+        </div>
+        <!--logo start-->
+        <a href="/" class="logo">MANAGE<span>SHOP</span></a>
 
-                                <i class="icon-bell-alt"></i>
-                                <span class="badge bg-warning">2</span>
-                            </a>
-                            <ul class="dropdown-menu extended notification">
-                                <div class="notify-arrow notify-arrow-yellow"></div>
-                                <li>
-                                    <p class="yellow">Thông báo đơn hàng </p>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="label label-danger"><i class="icon-remove"></i></span>
-                                        Server #3 overloaded.
-                                        <span class="small italic">34 mins</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- notification dropdown end -->
-                    </ul>
-                    <!--  notification end -->
-                </div>*@
-            <div class="top-nav ">
+        @*<div class="top-nav ">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu" style="margin-top:10px">
-                   
+                    @Html.Partial("_LoginPartial")
                 </ul>
                 <!--search & user info end-->
-            </div>
+            </div>*@
+    </div>
+
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href="/">
+                        <i class="icon-laptop"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="icon-th"></i>
+                        <span>Quản lý sản phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li>@Html.ActionLink("Danh mục sản phẩm", "Index", "ManageCategories", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Cập nhập sản phẩm", "Index", "ManageProducts", new { area = "" }, null)</li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="icon-cogs"></i>
+                        <span>Liên hệ</span>
+                    </a>
+                    <ul class="sub">
+                        <li>@Html.ActionLink("Thông tin liên hệ", "Index", "ManageContacts", new { area = "" }, null)</li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="icon-shopping-cart"></i>
+                        <span>Quản lý đơn hàng</span>
+                    </a>
+                    <ul class="sub">
+                        <li>@Html.ActionLink("Đơn đặt hàng", "Index", "ManageOrders", new { area = "" }, null)</li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="icon-user"></i>
+                        <span>Admin</span>
+                    </a>
+                    <ul class="sub">
+                        <li>@Html.ActionLink("Users", "Index", "ManageUsers", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Roles", "Index", "ManageRoles", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
         </div>
+    </aside>
 
-        <aside>
-            <div id="sidebar" class="nav-collapse ">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu" id="nav-accordion">
-                    <li>
-                        <a class="active" href="/">
-                            <i class="icon-laptop"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                 
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-th"></i>
-                                <span>Sản phẩm</span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Danh mục sản phẩm", "Index", "ManageCategories", new { area = "" }, null)</li>
-                                <li>@Html.ActionLink("Cập nhập sản phẩm", "Index", "ManageProducts", new { area = "" }, null)</li>
-                            </ul>
-                        </li>
-
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-cogs"></i>
-                                <span>Thiết lập khác</span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Giới thiệu", "Index", "ManageAboutShops", new { area = "" }, null)</li>
-                                <li>@Html.ActionLink("Thông tin liên hệ", "Index", "ManageContacts", new { area = "" }, null)</li>
-                                <li>@Html.ActionLink("Tin tức dịch vụ", "Index", "ManageNewsServices", new { area = "" }, null)</li>
-                            </ul>
-                        </li>
-
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-sitemap"></i>
-                                <span>Thiết lập website</span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Hình ảnh slide", "Index", "ManageSlideImages", new { area = "" }, null)</li>
-                                <li>@Html.ActionLink("Nhận xét của khách hàng", "Index", "ManageUserComments", new { area = "" }, null)</li>
-                            </ul>
-                        </li>
-                    
-                    
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-shopping-cart"></i>
-                                <span>Shop</span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Đơn đặt hàng", "Index", "ManageOrders", new { area = "" }, null)</li>
-                            </ul>
-                        </li>
-                    
-                  
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-user"></i>
-                                <span>Admin</span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Users", "Index", "ManageUsers", new { area = "" }, null)</li>
-                                <li>@Html.ActionLink("Roles", "Index", "ManageRoles", new { area = "" }, null)</li>
-                                <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                            </ul>
-                        </li>
-                    
-                </ul>
-                <!-- sidebar menu end-->
-            </div>
-        </aside>
-
-    
+    }
 
     <section id="main-content">
         <section class="wrapper">
@@ -144,15 +98,15 @@
         </section>
     </section>
 
-  
-        <footer class="site-footer navbar-fixed-bottom">
-            <div class="text-center">
-                2016 © ManageShop thuộc bản quyền TeamVT.
-                <a href="#" class="go-top">
-                    <i class="icon-angle-up"></i>
-                </a>
-            </div>
-        </footer>
+
+    <footer class="site-footer navbar-fixed-bottom">
+        <div class="text-center">
+            2019 - DownyShop
+            <a href="#" class="go-top">
+                <i class="icon-angle-up"></i>
+            </a>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bcf0e93f0379418abadcabca1e5343dd" Name="Diagram1">
+        <EntityTypeShape EntityType="CsK23T3aModel.Category" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3aModel.ContactDetail" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3aModel.Contact" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3aModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3aModel.Order" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3aModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3aModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CsK23T3aModel.FK_PRODUCTS_CATEGORYID" ManuallyRouted="false" />
+        <AssociationConnector Association="CsK23T3aModel.FK_CONTACTDETAILS_CONTACTID" ManuallyRouted="false" />
+        <AssociationConnector Association="CsK23T3aModel.FK_ORDERDETAILS_ORDERID" ManuallyRouted="false" />
+        <AssociationConnector Association="CsK23T3aModel.FK_ORDERDETAILS_PRODUCTID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

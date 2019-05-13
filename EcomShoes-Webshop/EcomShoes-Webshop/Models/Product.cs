@@ -28,13 +28,12 @@ namespace EcomShoes_Webshop.Models
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime UpdateDate { get; set; }
         public string Description { get; set; }
-        public int Status { get; set; }
-        public int SizeID { get; set; }
+        public string Status { get; set; }
         public int Quantity { get; set; }
         public int CategoryID { get; set; }
+        public string Size { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual ProductSize ProductSize { get; set; }
     }
 }

@@ -1,0 +1,135 @@
+﻿@model EcomShoes_Webshop.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section class="panel">
+    <header class="panel-heading">
+        Tạo mới sản phẩm
+    </header>
+    <div class="panel-body">
+        @using (Html.BeginForm("Create", "ManageProducts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryID, "Danh mục", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = " form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductCode, "Mã sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProductCode)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductName, "Tên sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProductName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SalePrice, "Giá bán", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.SalePrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SalePrice)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OriginalPrice, "Giá gốc", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.OriginalPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OriginalPrice)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-lg-10">
+                        @Html.DropDownListFor(model => model.Status, null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantity, "Số lượng", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-lg-10">
+                        @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, "Mô tả sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="1339" class="control-label col-md-2">Hình ảnh sản phẩm</label>
+                    <div class="col-md-10">
+                        <input type="file" name="Image" id="1339" onchange="readIMG(this)" />
+                        <img id="Demo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <input type="submit" value="Lưu" class="btn btn-danger" />
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+    <div class="panel-heading">
+        @Html.ActionLink("Quay lại", "Index", null, htmlAttributes: new { @class = "btn btn-info" })
+    </div>
+
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function readIMG(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#Demo')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}
