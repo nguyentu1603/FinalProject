@@ -14,7 +14,6 @@ namespace EcomShoes_Webshop.Controllers
     public class ManageProductsController : Controller
     {
         private K23T3aEntities db = new K23T3aEntities();
-
         // GET: /ManageProducts/
         public ActionResult Index()
         {
@@ -101,6 +100,12 @@ namespace EcomShoes_Webshop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var statusItems = new[]
+            {
+                new { Id = "DEACTIVE", Name = "Hết hàng" },
+                new { Id = "ACTIVE", Name = "Còn hàng" },
+            };
+            ViewBag.Status = new SelectList(statusItems, "Id", "Name");
             Product product = db.Products.Find(id);
             if (product == null)
             {
@@ -115,13 +120,23 @@ namespace EcomShoes_Webshop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,ProductCode,ProductName,SalePrice,OriginalPrice,ImageURL,CreatedDate,UpdateDate,Description,Status,Quantity,CategoryID,Size")] Product product)
+        public ActionResult Edit(Product product)
         {
+            checkPrice(product);
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                using (var scope = new TransactionScope())
+                {
+                    product.UpdateDate = DateTime.Now;
+                    db.Entry(product).State = EntityState.Modified;
+                    db.SaveChanges();
+                    var path = Server.MapPath("~/App_Data");
+                    path = System.IO.Path.Combine(path, product.ID.ToString());
+                    Request.Files["Image"].SaveAs(path);
+                    //All done successfully
+                    scope.Complete();
+                    return RedirectToAction("Index");
+                }
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "NameCategory", product.CategoryID);
             return View(product);
