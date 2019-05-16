@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\DoAnNhomK23T3\FinalProject\EcomShoes-Webshop\EcomShoes-Webshop\Models\DownyData.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Trí\FinalProject\EcomShoes-Webshop\EcomShoes-Webshop\Models\DownyData.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

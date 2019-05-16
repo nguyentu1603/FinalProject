@@ -165,16 +165,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EditContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageCategoriesController.cs" />
     <Compile Include="Controllers\ManageContactController.cs" />
-    <Compile Include="Controllers\ManageOrderController.cs" />
+    <Compile Include="Controllers\ManageOrdersController.cs" />
     <Compile Include="Controllers\ManageProductsController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
-    <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -421,8 +419,6 @@
     <Content Include="Views\EditContact\Index.cshtml" />
     <Content Include="Views\ManageContact\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\ManageOrder\Index.cshtml" />
-    <Content Include="Views\OrderDetail\Index.cshtml" />
     <Content Include="Views\ManageProducts\Create.cshtml" />
     <Content Include="Views\ManageProducts\Delete.cshtml" />
     <Content Include="Views\ManageProducts\Details.cshtml" />
@@ -433,6 +429,10 @@
     <Content Include="Views\ManageCategories\Details.cshtml" />
     <Content Include="Views\ManageCategories\Edit.cshtml" />
     <Content Include="Views\ManageCategories\Index.cshtml" />
+    <Content Include="Views\ManageOrders\Delete.cshtml" />
+    <Content Include="Views\ManageOrders\Edit.cshtml" />
+    <Content Include="Views\ManageOrders\Index.cshtml" />
+    <Content Include="Views\ManageOrders\OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

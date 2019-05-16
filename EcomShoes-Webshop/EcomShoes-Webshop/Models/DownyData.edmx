@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CsK23T3aModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CsK23T3aModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -42,13 +42,14 @@
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Discount" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="int" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderCode" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -58,10 +59,9 @@
           <Property Name="ContactReceicerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactReceicerPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactRecercerEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="OrderCode" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="Status" Type="int" Nullable="false" />
-          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
           <Property Name="TotalPrice" Type="decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
@@ -196,8 +196,7 @@
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CsK23T3aModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -241,7 +240,7 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ORDERDETAILS_ORDERID" FromRole="OrderDetails" ToRole="Orders" />
           <NavigationProperty Name="Product" Relationship="Self.FK_ORDERDETAILS_PRODUCTID" FromRole="OrderDetails" ToRole="Products" />
         </EntityType>
@@ -259,10 +258,10 @@
           <Property Name="ContactReceicerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ContactReceicerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ContactRecercerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OrderCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_ORDERDETAILS_ORDERID" FromRole="Orders" ToRole="OrderDetails" />
         </EntityType>

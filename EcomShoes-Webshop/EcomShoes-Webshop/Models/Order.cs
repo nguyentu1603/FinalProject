@@ -31,7 +31,7 @@ namespace EcomShoes_Webshop.Models
         public string ContactRecercerEmail { get; set; }
         public string Note { get; set; }
         public string OrderCode { get; set; }
-        public int Status { get; set; }
+        public Nullable<int> Status { get; set; }
         public string EmployeeName { get; set; }
         public decimal TotalPrice { get; set; }
     
