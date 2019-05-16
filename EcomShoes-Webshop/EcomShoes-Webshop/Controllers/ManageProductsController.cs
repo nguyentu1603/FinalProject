@@ -26,14 +26,7 @@ namespace EcomShoes_Webshop.Controllers
             path = System.IO.Path.Combine(path, id);
             return File(path, "image/*");
         }
-        private void checkPrice(Product model)
-        {
-            if (model.OriginalPrice <= 0 && model.SalePrice <= 0)
-            {
-                ModelState.AddModelError("SalePrice", RangBuoc.price_Less_0);
-                ModelState.AddModelError("OriginalPrice", RangBuoc.price_Less_0);
-            }
-        }
+      
         // GET: /ManageProducts/Details/5
         public ActionResult Details(int? id)
         {
@@ -42,6 +35,7 @@ namespace EcomShoes_Webshop.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
+            
             if (product == null)
             {
                 return HttpNotFound();
@@ -79,19 +73,30 @@ namespace EcomShoes_Webshop.Controllers
                     product.UpdateDate = DateTime.Now;
                     db.Products.Add(product);
                     db.SaveChanges();
+
                     //add file to app_data
+
                     var path = Server.MapPath("~/App_Data");
                     path = System.IO.Path.Combine(path, product.ID.ToString());
                     Request.Files["Image"].SaveAs(path);
-                    //All done successfully
+                    product.ImageURL = path;
+                    //All done successfully       
+                    db.SaveChanges();
                     scope.Complete();
                     return RedirectToAction("Index");
+
                 }
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "NameCategory", product.CategoryID);
             return View(product);
         }
-
+        private void checkPrice(Product model)
+        {
+            if (model.SalePrice <= 0)
+            {
+                ModelState.AddModelError("SalePrice", "Nhập giá lớn hơn 0");
+            }
+        }
 
         // GET: /ManageProducts/Edit/5
         public ActionResult Edit(int? id)
@@ -127,13 +132,18 @@ namespace EcomShoes_Webshop.Controllers
             {
                 using (var scope = new TransactionScope())
                 {
+                    //save edit of product
                     product.UpdateDate = DateTime.Now;
                     db.Entry(product).State = EntityState.Modified;
+
                     db.SaveChanges();
+                    //add file to app_data
                     var path = Server.MapPath("~/App_Data");
                     path = System.IO.Path.Combine(path, product.ID.ToString());
                     Request.Files["Image"].SaveAs(path);
+                    product.ImageURL = path; //gán đường dẫn vào ImageURL
                     //All done successfully
+                    db.SaveChanges(); // save lại đường dẫn
                     scope.Complete();
                     return RedirectToAction("Index");
                 }
