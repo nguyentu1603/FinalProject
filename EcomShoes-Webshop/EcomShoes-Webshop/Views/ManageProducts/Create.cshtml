@@ -45,7 +45,7 @@
                     @Html.LabelFor(model => model.SalePrice, "Giá bán", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
                     <div class="col-sm-10">
                         @Html.EditorFor(model => model.SalePrice, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.SalePrice,"Nhập giá bán lớn hơn 0 !", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.SalePrice,"", new { @class = "text-danger" })
                     </div>
                 </div>
 

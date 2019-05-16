@@ -88,6 +88,13 @@ namespace EcomShoes_Webshop.Controllers
                 }
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "NameCategory", product.CategoryID);
+            var statusItems = new[]
+            {
+                new { Id = "DEACTIVE", Name = "Hết hàng" },
+                new { Id = "ACTIVE", Name = "Còn hàng" },
+            };
+            ViewBag.Status = new SelectList(statusItems, "Id", "Name");
+
             return View(product);
         }
         private void checkPrice(Product model)
@@ -149,6 +156,12 @@ namespace EcomShoes_Webshop.Controllers
                 }
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "NameCategory", product.CategoryID);
+            var statusItems = new[]
+            {
+                new { Id = "DEACTIVE", Name = "Hết hàng" },
+                new { Id = "ACTIVE", Name = "Còn hàng" },
+            };
+            ViewBag.Status = new SelectList(statusItems, "Id", "Name");
             return View(product);
         }
 

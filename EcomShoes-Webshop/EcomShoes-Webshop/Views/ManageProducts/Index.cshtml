@@ -73,10 +73,10 @@
                                 <img src="@Url.Action("Image", new { id = item.ID})" style="width: 80px" />
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SalePrice)
+                                @item.SalePrice.ToString("N0")
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.OriginalPrice)
+                                @item.OriginalPrice.ToString("N0")
                             </td>
 
                             <td>
