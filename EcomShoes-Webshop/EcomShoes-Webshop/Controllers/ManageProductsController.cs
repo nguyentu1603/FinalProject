@@ -30,6 +30,8 @@ namespace EcomShoes_Webshop.Controllers
         // GET: /ManageProducts/Details/5
         public ActionResult Details(int? id)
         {
+        
+        
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +42,7 @@ namespace EcomShoes_Webshop.Controllers
             {
                 return HttpNotFound();
             }
+ 
             return View(product);
         }
 

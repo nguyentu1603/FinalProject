@@ -93,13 +93,13 @@
                             </td>
 
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-default btn-xs"})
                             </td>
                             <td>
-                                @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+                                @Html.ActionLink("Details", "Details", new { id = item.ID },htmlAttributes: new { @class = "btn btn-primary btn-xs" })
                             </td>
                             <td>
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
                             </td>
                         </tr>
                     }
