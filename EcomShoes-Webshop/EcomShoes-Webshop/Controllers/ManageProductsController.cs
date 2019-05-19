@@ -74,6 +74,7 @@ namespace EcomShoes_Webshop.Controllers
         public ActionResult Create(Product product)
         {
             checkPrice(product);
+            checkProductCode(product);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
@@ -109,9 +110,10 @@ namespace EcomShoes_Webshop.Controllers
         }
         private void checkPrice(Product model)
         {
-            if (model.SalePrice <= 0)
+            if (model.SalePrice <= 0 && model.OriginalPrice <= 0)
             {
                 ModelState.AddModelError("SalePrice", "Nhập giá lớn hơn 0");
+                ModelState.AddModelError("OriginalPrice", "Nhập giá lớn hơn 0");
             }
         }
 
