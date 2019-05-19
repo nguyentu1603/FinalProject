@@ -27,9 +27,17 @@ namespace EcomShoes_Webshop.Controllers
             return File(path, "image/*");
         }
 
-        private void checkProductCode(Product model) {
+        private void checkProductCodeCreate(Product model) {
             var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode);
             if (isProductCodeExist) {
+                ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
+            }
+        }
+        private void checkProductCodeEdit(Product model)
+        {
+            var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode && x.ID != model.ID);
+            if (isProductCodeExist)
+            {
                 ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
             }
         }
@@ -74,7 +82,7 @@ namespace EcomShoes_Webshop.Controllers
         public ActionResult Create(Product product)
         {
             checkPrice(product);
-            checkProductCode(product);
+            checkProductCodeCreate(product);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
@@ -147,7 +155,7 @@ namespace EcomShoes_Webshop.Controllers
         public ActionResult Edit(Product product)
         {
             checkPrice(product);
-            checkProductCode(product);
+            checkProductCodeEdit(product);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
