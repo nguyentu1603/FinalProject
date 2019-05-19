@@ -14,12 +14,8 @@ namespace EcomShoes_Webshop.Models
     
     public partial class Order
     {
-        public Order()
-        {
-            this.OrderDetails = new HashSet<OrderDetail>();
-        }
-    
         public int id { get; set; }
+        public string OrderCode { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ContactName { get; set; }
         public string ContactAddress { get; set; }
@@ -30,11 +26,10 @@ namespace EcomShoes_Webshop.Models
         public string ContactReceicerPhone { get; set; }
         public string ContactRecercerEmail { get; set; }
         public string Note { get; set; }
-        public string OrderCode { get; set; }
-        public Nullable<int> Status { get; set; }
         public string EmployeeName { get; set; }
+        public Nullable<int> Status { get; set; }
         public decimal TotalPrice { get; set; }
     
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual OrderDetail OrderDetail { get; set; }
     }
 }
