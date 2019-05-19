@@ -26,6 +26,13 @@ namespace EcomShoes_Webshop.Controllers
             path = System.IO.Path.Combine(path, id);
             return File(path, "image/*");
         }
+
+        private void checkProductCode(Product model) {
+            var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode);
+            if (isProductCodeExist) {
+                ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
+            }
+        }
       
         // GET: /ManageProducts/Details/5
         public ActionResult Details(int? id)
@@ -138,6 +145,7 @@ namespace EcomShoes_Webshop.Controllers
         public ActionResult Edit(Product product)
         {
             checkPrice(product);
+            checkProductCode(product);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())

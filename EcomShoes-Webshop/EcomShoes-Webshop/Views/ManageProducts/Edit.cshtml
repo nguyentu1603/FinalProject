@@ -70,7 +70,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Description, "Mô tả sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
                     <div class="col-sm-10">
-                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Description)
                     </div>
                 </div>
