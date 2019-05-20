@@ -22,13 +22,14 @@ namespace EcomShoes_Webshop.Controllers
         }
         public ActionResult Image(string id)
         {
-            var path = Server.MapPath("~/App_Data");
-            path = System.IO.Path.Combine(path, id);
+            var path = Server.MapPath("~/App_Data"); // đường dẫn chứa tệp hình ảnh của sản phẩm
+            path = System.IO.Path.Combine(path, id); // tên hình ảnh là id của mã sản phẩm
             return File(path, "image/*");
         }
-
+        //Kiểm tra mã sản phẩm đã tồn tại trong database: Nhung, Tú
         private void checkProductCodeCreate(Product model) {
-            var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode);
+            // x.ProductCode: giá trị trong database; model.ProductCode: giá trị trong view
+            var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode);//kiểm tra sự tồn tại
             if (isProductCodeExist) {
                 ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
             }
@@ -45,8 +46,6 @@ namespace EcomShoes_Webshop.Controllers
         // GET: /ManageProducts/Details/5
         public ActionResult Details(int? id)
         {
-        
-        
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -64,7 +63,9 @@ namespace EcomShoes_Webshop.Controllers
         // GET: /ManageProducts/Create
         public ActionResult Create()
         {
+     
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "NameCategory");
+            //Tạo viewbag hiển thị giá trị mặc định cho Status
             var statusItems = new[]
             {
                 new { Id = "DEACTIVE", Name = "Hết hàng" },
@@ -81,24 +82,25 @@ namespace EcomShoes_Webshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
-            checkPrice(product);
-            checkProductCodeCreate(product);
+            checkPrice(product); //Kiểm tra giá trị giá gốc và giá bán phải lớn hơn 0.
+            checkProductCodeCreate(product); //Kiểm tra mã sản phẩm đã tồn tại hay chưa.
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
                 {
-                    //add model to database
+                    //thêm model vào database
                     product.CreatedDate = DateTime.Now;
                     product.UpdateDate = DateTime.Now;
                     db.Products.Add(product);
                     db.SaveChanges();
 
-                    //add file to app_data
+                    //gán hình vào file app_data
 
                     var path = Server.MapPath("~/App_Data");
-                    path = System.IO.Path.Combine(path, product.ID.ToString());
+                    path = System.IO.Path.Combine(path, product.ID.ToString()); //file ảnh sản phẩm sẽ có tên là id của sẩn phẩm.
                     Request.Files["Image"].SaveAs(path);
-                    product.ImageURL = path;
+                    product.ImageURL = path; //ImageURL sẽ lưu đường dẫn tới file ảnh.
+
                     //All done successfully       
                     db.SaveChanges();
                     scope.Complete();
