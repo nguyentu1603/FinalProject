@@ -22,6 +22,9 @@
                     <thead>
                         <tr>
                             <th>
+                                Hình
+                            </th>
+                            <th>
                                 Tên sản phẩm
                             </th>
                             <th>
@@ -43,7 +46,7 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.OrderDetail.Product.ProductName)
+                                    <img src="@Url.Action("Image", new { id = item.OrderDetail.ProductID})" style="width: 80px" />
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.OrderDetail.Price) 

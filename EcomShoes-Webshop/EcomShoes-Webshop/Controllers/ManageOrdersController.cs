@@ -19,7 +19,12 @@ namespace EcomShoes_Webshop.Controllers
         {
             return View(db.Orders.ToList());
         }
-
+        public ActionResult Image(string id)
+        {
+            var path = Server.MapPath("~/App_Data"); // đường dẫn chứa tệp hình ảnh của sản phẩm
+            path = System.IO.Path.Combine(path, id); // tên hình ảnh là id của mã sản phẩm
+            return File(path, "image/*");
+        }
         // GET: /ManageOrders/Details/5
         public ActionResult Details(int? id)
         {
