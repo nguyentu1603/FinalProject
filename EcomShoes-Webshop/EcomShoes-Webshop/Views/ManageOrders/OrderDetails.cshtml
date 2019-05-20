@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcomShoes_Webshop.Models.OrderDetail>
+﻿@model IEnumerable<EcomShoes_Webshop.Models.Order>
 
 
 @{
@@ -43,16 +43,16 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Order.ProductName)
+                                    @Html.DisplayFor(modelItem => item.OrderDetail.Product.ProductName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Price) 
+                                    @Html.DisplayFor(modelItem => item.OrderDetail.Price) 
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                    @Html.DisplayFor(modelItem => item.OrderDetail.Quantity)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Discount) 
+                                    @Html.DisplayFor(modelItem => item.OrderDetail.Discount) 
                                 </td>
                             </tr>
                         }
@@ -63,7 +63,7 @@
                             @foreach (var item in Model)
                             {
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Order.TotalPrice)
+                                    @Html.DisplayFor(modelItem => item.TotalPrice)
                                 </td>
                                 break;
                             }
@@ -87,25 +87,25 @@
                                     <tr class="danger">
                                         <th>Tên</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactName)
+                                            @Html.DisplayFor(modelItem => item.ContactName)
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Địa chỉ</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactAddress)
+                                            @Html.DisplayFor(modelItem => item.ContactAddress)
                                         </td>
                                     </tr>
                                     <tr class="danger">
                                         <th>Số điện thoại</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactPhone)
+                                            @Html.DisplayFor(modelItem => item.ContactPhone)
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactEmail)
+                                            @Html.DisplayFor(modelItem => item.ContactEmail)
                                         </td>
                                     </tr>
                                     break;
@@ -125,25 +125,25 @@
                                     <tr class="success">
                                         <th>Tên</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactReceicerName)
+                                            @Html.DisplayFor(modelItem => item.ContactReceicerName)
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Địa chỉ</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactReceicerAddress)
+                                            @Html.DisplayFor(modelItem => item.ContactReceicerAddress)
                                         </td>
                                     </tr>
                                     <tr class="success">
                                         <th>Số điện thoại</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactReceicerPhone)
+                                            @Html.DisplayFor(modelItem => item.ContactReceicerPhone)
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Order.ContactRecercerEmail)
+                                            @Html.DisplayFor(modelItem => item.ContactRecercerEmail)
                                         </td>
                                     </tr>
                                     break;

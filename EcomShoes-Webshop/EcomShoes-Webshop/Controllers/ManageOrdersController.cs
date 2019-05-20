@@ -118,7 +118,7 @@ namespace EcomShoes_Webshop.Controllers
         {
             using (var db = new K23T3aEntities())
             {
-                var orderdetail = db.OrderDetails.Where(x => x.OrderID == id).Include(p => p.Order);
+                var orderdetail = db.Orders.Where(x => x.id == id).Include(p => p.OrderDetail);
                 return View(orderdetail.ToList());
             }
         }
