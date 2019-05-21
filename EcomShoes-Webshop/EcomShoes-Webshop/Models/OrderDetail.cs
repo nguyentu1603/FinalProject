@@ -15,7 +15,6 @@ namespace EcomShoes_Webshop.Models
     public partial class OrderDetail
     {
         public int OrderID { get; set; }
-        public string ProductName { get; set; }
         public int ProductID { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
