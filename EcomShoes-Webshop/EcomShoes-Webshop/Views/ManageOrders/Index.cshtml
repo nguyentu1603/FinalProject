@@ -53,6 +53,9 @@
                                 @Html.DisplayFor(modelItem => item.ContactEmail)
                             </td>
                             <td>
+                                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary btn-xs" })
+                            </td>
+                            <td>
                                 @Html.ActionLink("Chi tiết", "OrderDetails", new { id = item.id}, htmlAttributes: new { @class = "btn btn-primary btn-xs" })
                             </td>
                             <td>

@@ -46,8 +46,7 @@
                             <tr>
                                 <td>
                                     <img src="@Url.Action("Image", new { id = @Model.ProductID})" style="width: 80px" />
-                              
-                                    
+
                                 </td>
                                 <td>
                                     @Model.Product.ProductName
@@ -67,7 +66,6 @@
                             <td colspan="5" style="text-align:right">
                                 <strong>Tổng cộng</strong> :
                             </td>
-                            
                             
                                 <td>
                                     @Model.Order.TotalPrice.ToString("N0")
@@ -155,6 +153,7 @@
     </div>
 
     <div class="panel-heading">
+     
         @Html.ActionLink("Quay lại", "Index", null, htmlAttributes: new { @class = "btn btn-info" })
     </div>
 

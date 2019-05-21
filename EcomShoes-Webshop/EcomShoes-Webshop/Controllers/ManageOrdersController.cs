@@ -26,19 +26,19 @@ namespace EcomShoes_Webshop.Controllers
             return File(path, "image/*");
         }
 
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Order order = db.Orders.Find(id);
-        //    if (order == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(order);
-        //}
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+            return View(order);
+        }
 
         // POST: /ManageOrders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -83,8 +83,7 @@ namespace EcomShoes_Webshop.Controllers
         }
         public ActionResult OrderDetails(int id)
         {
-            OrderDetail orderdetail = db.OrderDetails.Find(id);
-            
+                OrderDetail orderdetail = db.OrderDetails.Find(id);          
                 return View(orderdetail);
         }
 
