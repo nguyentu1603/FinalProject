@@ -4,14 +4,13 @@
     ViewBag.Title = "OrderDetails";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 <section class="panel">
     <header class="panel-heading">
-        Chi tiết thông tin don hàng
+        Chi tiết thông tin đơn hàng
     </header>
     <div class="panel-body">
         <ul class="nav nav-pills nav-tabs">
-            <li class="active"><a data-toggle="pill" href="#home">Ðon hàng</a></li>
+            <li class="active"><a data-toggle="pill" href="#home">Ðơn hàng</a></li>
             <li><a data-toggle="pill" href="#menu1">Khách hàng</a></li>
         </ul>
 
@@ -21,6 +20,9 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>
+                                Hình
+                            </th>
                             <th>
                                 Tên sản phẩm
                             </th>
@@ -42,6 +44,11 @@
                         
                         
                             <tr>
+                                <td>
+                                    <img src="@Url.Action("Image", new { id = @Model.ProductID})" style="width: 80px" />
+                              
+                                    
+                                </td>
                                 <td>
                                     @Model.Product.ProductName
                                 </td>
