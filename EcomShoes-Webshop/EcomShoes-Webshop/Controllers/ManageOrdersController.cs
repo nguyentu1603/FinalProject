@@ -28,6 +28,15 @@ namespace EcomShoes_Webshop.Controllers
 
         public ActionResult Edit(int? id)
         {
+            var statusItems = new[]
+            {
+                new { Id = "0", Name = "Đang chờ xác nhận" },
+                new { Id = "1", Name = "Đã nhận" },
+                new { Id = "2", Name = "Đang xử lý và đóng gói "},
+                new { Id = "3", Name = "Đang trên đường giao hàng" },
+                new { Id = "3", Name = "Đã nhận hàng" }
+            };
+            ViewBag.Status = new SelectList(statusItems, "Id", "Name");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,21 +49,29 @@ namespace EcomShoes_Webshop.Controllers
             return View(order);
         }
 
-        // POST: /ManageOrders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "id,CreatedDate,ContactName,ContactAddress,ContactPhone,ContactEmail,ContactReceiverName,ContactReceiverAddress,ContactReceiverPhone,ContactReceiverEmail,Note,OrderCode,Status,EmployeeName,TotalPrice")] Order order)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(order).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(order);
-        //}
+         //POST: /ManageOrders/Edit/5
+         //To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+         //more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "id,CreatedDate,ContactName,ContactAddress,ContactPhone,ContactEmail,ContactReceiverName,ContactReceiverAddress,ContactReceiverPhone,ContactReceiverEmail,Note,OrderCode,Status,EmployeeName,TotalPrice")] Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(order);
+             var statusItems = new[]
+            {
+                new { Id = "0", Name = "Đang chờ xác nhận" },
+                new { Id = "1", Name = "Đã nhận" },
+                new { Id = "2", Name = "Đang xử lý và đóng gói "},
+                new { Id = "3", Name = "Đang trên đường giao hàng" },
+                new { Id = "3", Name = "Đã nhận hàng" }
+            };
+        }
 
         // GET: /ManageOrders/Delete/5
         public ActionResult Delete(int? id)
