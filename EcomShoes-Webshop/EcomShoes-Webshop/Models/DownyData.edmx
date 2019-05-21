@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CsK23T3aModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CsK23T3aModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -54,10 +54,10 @@
           <Property Name="ContactAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ContactReceicerName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ContactReceicerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ContactReceicerPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ContactRecercerEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactReceiverName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactReceiverAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactReceiverPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactReceiverEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Note" Type="nvarchar(max)" />
           <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="int" />
@@ -319,15 +319,15 @@
           <Property Name="ContactAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactReceicerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactReceicerAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactReceicerPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactRecercerEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Int32" />
           <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <NavigationProperty Name="OrderDetail" Relationship="CsK23T3aModel.FK_ORDERDETAILS_ORDERID" FromRole="Order" ToRole="OrderDetail" />
+          <Property Name="ContactReceiverName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactReceiverAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactReceiverPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactReceiverEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -482,14 +482,14 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="CsK23T3aModel.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="ContactReceiverEmail" ColumnName="ContactReceiverEmail" />
+                <ScalarProperty Name="ContactReceiverPhone" ColumnName="ContactReceiverPhone" />
+                <ScalarProperty Name="ContactReceiverAddress" ColumnName="ContactReceiverAddress" />
+                <ScalarProperty Name="ContactReceiverName" ColumnName="ContactReceiverName" />
                 <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="ContactRecercerEmail" ColumnName="ContactRecercerEmail" />
-                <ScalarProperty Name="ContactReceicerPhone" ColumnName="ContactReceicerPhone" />
-                <ScalarProperty Name="ContactReceicerAddress" ColumnName="ContactReceicerAddress" />
-                <ScalarProperty Name="ContactReceicerName" ColumnName="ContactReceicerName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
                 <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />

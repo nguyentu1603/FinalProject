@@ -21,14 +21,14 @@ namespace EcomShoes_Webshop.Models
         public string ContactAddress { get; set; }
         public string ContactPhone { get; set; }
         public string ContactEmail { get; set; }
-        public string ContactReceicerName { get; set; }
-        public string ContactReceicerAddress { get; set; }
-        public string ContactReceicerPhone { get; set; }
-        public string ContactRecercerEmail { get; set; }
         public string Note { get; set; }
         public string EmployeeName { get; set; }
         public Nullable<int> Status { get; set; }
         public decimal TotalPrice { get; set; }
+        public string ContactReceiverName { get; set; }
+        public string ContactReceiverAddress { get; set; }
+        public string ContactReceiverPhone { get; set; }
+        public string ContactReceiverEmail { get; set; }
     
         public virtual OrderDetail OrderDetail { get; set; }
     }

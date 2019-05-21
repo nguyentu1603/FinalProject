@@ -1,13 +1,13 @@
-﻿@model IEnumerable<EcomShoes_Webshop.Models.Order>
-
+﻿@Model EcomShoes_Webshop.Models.OrderDetail
 
 @{
     ViewBag.Title = "OrderDetails";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 <section class="panel">
     <header class="panel-heading">
-        Chi tiết thông tin đơn hàng
+        Chi tiết thông tin don hàng
     </header>
     <div class="panel-body">
         <ul class="nav nav-pills nav-tabs">
@@ -22,16 +22,13 @@
                     <thead>
                         <tr>
                             <th>
-                                Hình
-                            </th>
-                            <th>
                                 Tên sản phẩm
                             </th>
                             <th>
                                 Giá gốc
                             </th>
                             <th>
-                                Số luợng
+                                Số lượng
                             </th>
                             <th>
                                 Giảm giá
@@ -42,34 +39,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
-                        {
+                        
+                        
                             <tr>
                                 <td>
-                                    <img src="@Url.Action("Image", new { id = item.OrderDetail.ProductID})" style="width: 80px" />
+                                    @Model.Product.ProductName
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.OrderDetail.Price) 
+                                    @Model.Price.ToString("N0")
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.OrderDetail.Quantity)
+                                    @Model.Quantity                                   
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.OrderDetail.Discount) 
+                                    @Model.Discount
                                 </td>
                             </tr>
-                        }
+                        
                         <tr>
                             <td colspan="5" style="text-align:right">
                                 <strong>Tổng cộng</strong> :
                             </td>
-                            @foreach (var item in Model)
-                            {
+                            
+                            
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                                    @Model.Order.TotalPrice.ToString("N0")
                                 </td>
-                                break;
-                            }
+                                
+                            
                         </tr>
                     </tbody>
                 </table>
@@ -85,35 +82,30 @@
                                 Thông tin người đặt hàng
                             </header>
                             <table class="table">
-                                @foreach (var item in Model)
-                                {
                                     <tr class="danger">
                                         <th>Tên</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactName)
+                                            @Model.Order.ContactName
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Địa chỉ</th>
+                                        <th>Ðịa chỉ</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactAddress)
+                                            @Model.Order.ContactAddress
                                         </td>
                                     </tr>
                                     <tr class="danger">
                                         <th>Số điện thoại</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactPhone)
+                                            @Model.Order.ContactPhone
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactEmail)
+                                            @Model.Order.ContactEmail
                                         </td>
                                     </tr>
-                                    break;
-
-                                }
                             </table>
                         </section>
                     </div>
@@ -123,36 +115,30 @@
                                 Thông tin người nhận
                             </header>
                             <table class="table table-striped">
-                                @foreach (var item in Model)
-                                {
-                                    <tr class="success">
+                               <tr class="success">
                                         <th>Tên</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactReceicerName)
+                                            @Model.Order.ContactReceiverName
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Địa chỉ</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactReceicerAddress)
+                                            @Model.Order.ContactReceiverAddress
                                         </td>
                                     </tr>
                                     <tr class="success">
                                         <th>Số điện thoại</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactReceicerPhone)
+                                            @Model.Order.ContactReceiverPhone
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ContactRecercerEmail)
+                                            @Model.Order.ContactReceiverEmail
                                         </td>
                                     </tr>
-                                    break;
-
-                                }
-
                             </table>
                         </section>
                     </div>
@@ -166,56 +152,3 @@
     </div>
 
 </section>
-
-@*<h2>OrderDetails</h2>
-
-    <div>
-       <h4>OrderDetail</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Quantity)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Discount)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Discount)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Order.ContactName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Order.ContactName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Product.ProductCode)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Product.ProductCode)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>*@
