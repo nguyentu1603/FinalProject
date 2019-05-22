@@ -34,7 +34,7 @@ namespace EcomShoes_Webshop.Controllers
                 new { Id = "1", Name = "Đã nhận" },
                 new { Id = "2", Name = "Đang xử lý và đóng gói "},
                 new { Id = "3", Name = "Đang trên đường giao hàng" },
-                new { Id = "3", Name = "Đã nhận hàng" }
+                new { Id = "4", Name = "Đã nhận hàng" }
             };
             ViewBag.Status = new SelectList(statusItems, "Id", "Name");
             if (id == null)

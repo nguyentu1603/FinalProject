@@ -21,77 +21,77 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               
+               @Html.ValueFor(model=>model.CreatedDate,"{0:dd/MM/yyyy}")
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                
+                @Html.DisplayFor(model => model.ContactName)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactAddress, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactAddress*@
+                @Html.DisplayFor(model => model.ContactAddress)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactPhone, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactPhone*@
+                @Html.DisplayFor(model => model.ContactPhone)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactEmail, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactEmail*@
+                @Html.DisplayFor(model => model.ContactEmail)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactReceiverName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactReceiverName*@
+                @Html.DisplayFor(model => model.ContactReceiverName)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactReceiverAddress, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactReceiverAddress*@
+                @Html.DisplayFor(model => model.ContactReceiverAddress)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactReceiverPhone, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactReceiverPhone*@
+                @Html.DisplayFor(model => model.ContactReceiverPhone)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ContactReceiverEmail, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.ContactReceiverEmail*@
+                @Html.DisplayFor(model => model.ContactReceiverEmail)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Note, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.Note*@
+                @Html.DisplayFor(model => model.Note)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.OrderCode, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@model.OrderCode*@
+                @Html.DisplayFor(model => model.OrderCode)
             </div>
         </div>
 
@@ -106,13 +106,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmployeeName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                
+                @Html.DisplayFor(model => model.EmployeeName)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn bg-success" />
             </div>
         </div>
     </div>
