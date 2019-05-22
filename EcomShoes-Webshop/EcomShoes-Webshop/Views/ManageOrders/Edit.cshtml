@@ -1,11 +1,11 @@
 ﻿@model EcomShoes_Webshop.Models.Order
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Chỉnh sửa đơn hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Chỉnh sửa đơn hàng</h2>
 
 
 @using (Html.BeginForm())
@@ -13,14 +13,14 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Order</h4>
+    <h4>Đơn hàng</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.id)
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.OrderCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.OrderCode,"Mã đơn hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.OrderCode, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.OrderCode, "", new { @class = "text-danger" })
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CreatedDate,"Ngày tạo đơn hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactName,"Tên người đặt hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactAddress,"Địa chỉ người đặt hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactAddress, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactAddress, "", new { @class = "text-danger" })
@@ -52,7 +52,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactPhone,"Số điện thoại người đặt hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactPhone, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactPhone, "", new { @class = "text-danger" })
@@ -60,7 +60,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactEmail,"Email người đặt hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactEmail, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactEmail, "", new { @class = "text-danger" })
@@ -68,7 +68,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactReceiverName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactReceiverName,"Tên người nhận", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactReceiverName, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactReceiverName, "", new { @class = "text-danger" })
@@ -76,7 +76,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactReceiverAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactReceiverAddress,"Địa chỉ người nhận", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactReceiverAddress, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactReceiverAddress, "", new { @class = "text-danger" })
@@ -84,7 +84,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactReceiverPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactReceiverPhone,"Số điện thoại người nhận", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactReceiverPhone, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactReceiverPhone, "", new { @class = "text-danger" })
@@ -92,7 +92,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ContactReceiverEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ContactReceiverEmail,"Email người nhận", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ContactReceiverEmail, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ContactReceiverEmail, "", new { @class = "text-danger" })
@@ -100,7 +100,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Note,"Ghi chú", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
@@ -108,7 +108,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.EmployeeName,"Tên nhân viên", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
@@ -116,7 +116,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Status,"Trạng thái đơn hàng", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.Status, null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
@@ -126,14 +126,14 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Lưu" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay lại", "Index")
 </div>
 
 @section Scripts {

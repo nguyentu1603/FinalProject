@@ -103,7 +103,7 @@ namespace EcomShoes_Webshop.Controllers
         }
         public ActionResult OrderDetails(int id)
         {
-                OrderDetail orderdetail = db.OrderDetails.Find(id);          
+                var  orderdetail = db.OrderDetails.Find(id);          
                 return View(orderdetail);
         }
 

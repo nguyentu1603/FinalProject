@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EcomShoes_Webshop.Models.Order>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý đơn hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <section class="panel">
@@ -19,6 +19,9 @@
                         </th>
                         <th>
                             Mã đơn hàng
+                        </th>
+                        <th>
+                            Trạng thái đơn hàng
                         </th>
                         <th>
                             Tên khách hàng
@@ -43,6 +46,29 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.OrderCode)
+                            </td>
+                            <td>
+                                @switch (item.Status)
+                                {
+                                    case 0:
+                                        <text>Đang chờ xác nhận</text>
+                                        break;
+                                    case 1:
+                                        <text>Đã nhận</text>
+                                        break;
+                                    case 2:
+                                        <text>Đang xử lý và đóng gói</text>
+                                        break;
+                                    case 3:
+                                     <text>Đang trên đường giao hàng </text>
+                                        break;
+                                    case 4:
+                                        <text>Đã nhận hàng</text>
+                                        break;
+                                    default:
+                                        <text>Đang chờ xác nhận</text>
+                                        break;
+                                }
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.ContactName)

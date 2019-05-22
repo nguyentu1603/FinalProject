@@ -1,7 +1,7 @@
 ﻿@Model EcomShoes_Webshop.Models.OrderDetail
 
 @{
-    ViewBag.Title = "OrderDetails";
+    ViewBag.Title = "Chi tiết đơn hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <section class="panel">
@@ -41,8 +41,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        
                             <tr>
                                 <td>
                                     <img src="@Url.Action("Image", new { id = @Model.ProductID})" style="width: 80px" />
