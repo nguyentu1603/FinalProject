@@ -74,13 +74,13 @@ namespace EcomShoes_Webshop.Controllers
         }
 
         // GET: /ManageOrders/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? code)
         {
-            if (id == null)
+            if (code == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = db.Orders.Find(code);
             if (order == null)
             {
                 return HttpNotFound();
@@ -91,11 +91,14 @@ namespace EcomShoes_Webshop.Controllers
         // POST: /ManageOrders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int code)
         {
-            Order order = db.Orders.Find(id);
+            Order order = db.Orders.Find(code);
+            OrderDetail orderdetail = db.OrderDetails.Find(code);
             db.Orders.Remove(order);
+            db.OrderDetails.Remove(orderdetail);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
         public ActionResult OrderDetails(int id)
