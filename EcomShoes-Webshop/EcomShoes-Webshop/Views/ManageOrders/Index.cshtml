@@ -29,6 +29,7 @@
                         <th>
                             Email
                         </th>
+                        <th>Chỉnh sửa</th>
                         <th>Chi tiết</th>
                         <th>Xóa</th>
                     </tr>
@@ -59,7 +60,13 @@
                                 @Html.ActionLink("Chi tiết", "OrderDetails", new { id = item.id}, htmlAttributes: new { @class = "btn btn-primary btn-xs" })
                             </td>
                             <td>
+                                @if (item.Status == 0 || item.Status == 1)
+                                {
                                 @Html.ActionLink("Xóa", "Delete", new { code = item.id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
+                                }
+                                else {
+                                @Html.ActionLink(" ","Delete", new { code = item.id }, htmlAttributes: new { @class = "linkdisabled" })
+                                }
                             </td>
                         </tr>
                     }
