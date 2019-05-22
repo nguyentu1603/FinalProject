@@ -429,9 +429,9 @@
     <Content Include="Views\ManageCategories\Edit.cshtml" />
     <Content Include="Views\ManageCategories\Index.cshtml" />
     <Content Include="Views\ManageOrders\Delete.cshtml" />
-    <Content Include="Views\ManageOrders\Edit.cshtml" />
     <Content Include="Views\ManageOrders\Index.cshtml" />
     <Content Include="Views\ManageOrders\OrderDetails.cshtml" />
+    <Content Include="Views\ManageOrders\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

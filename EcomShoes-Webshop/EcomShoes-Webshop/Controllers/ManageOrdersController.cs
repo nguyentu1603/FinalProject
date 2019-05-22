@@ -54,7 +54,7 @@ namespace EcomShoes_Webshop.Controllers
          //more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,CreatedDate,ContactName,ContactAddress,ContactPhone,ContactEmail,ContactReceiverName,ContactReceiverAddress,ContactReceiverPhone,ContactReceiverEmail,Note,OrderCode,Status,EmployeeName,TotalPrice")] Order order)
+        public ActionResult Edit(Order order)
         {
             if (ModelState.IsValid)
             {
