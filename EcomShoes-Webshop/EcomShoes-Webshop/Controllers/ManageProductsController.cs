@@ -209,9 +209,19 @@ namespace EcomShoes_Webshop.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            var inOrder = db.OrderDetails.Where(x => x.ProductID == id);
+            if (inOrder.Count() != 0)
+            {
+                TempData["msg"] = "<script>alert('Sản phẩm hiện tại đang tồn tại trong giỏ hàng. Vui lòng thực hiện sau');</script>";
+                
+            }
+            else
+            {
+                db.Products.Remove(product);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(product);
         }
 
         protected override void Dispose(bool disposing)
