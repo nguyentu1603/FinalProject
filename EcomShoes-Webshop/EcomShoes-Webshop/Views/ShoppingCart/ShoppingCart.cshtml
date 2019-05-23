@@ -1,50 +1,51 @@
-﻿
+﻿@using EcomShoes_Webshop.Models;
+@model List<Cart>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @*<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html lang="zxx">
+    author: W3layouts
+    author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+    -->
+    <!DOCTYPE html>
+    <html lang="zxx">
 
-<head>
-    <title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website Template | Check Out :: w3layouts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript">
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+    <head>
+        <title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website Template | Check Out :: w3layouts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript">
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- //custom-theme -->
-    <link href="/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="/Content/css/shop.css" type="text/css" media="screen" property="" />
-    <link href="/Content/css/style7.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- Owl-carousel-CSS -->
-    <link rel="stylesheet" type="text/css" href="/Content/css/checkout.css">
-    <link href="/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- font-awesome-icons -->
-    <link href="/Content/css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome-icons -->
-    <link href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-          rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
-</head>*@
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        <!-- //custom-theme -->
+        <link href="/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="/Content/css/shop.css" type="text/css" media="screen" property="" />
+        <link href="/Content/css/style7.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- Owl-carousel-CSS -->
+        <link rel="stylesheet" type="text/css" href="/Content/css/checkout.css">
+        <link href="/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- font-awesome-icons -->
+        <link href="/Content/css/font-awesome.css" rel="stylesheet">
+        <!-- //font-awesome-icons -->
+        <link href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+              rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    </head>*@
 
 <body>
     <!-- banner -->
-
     <!-- //banner -->
     <!-- top Products -->
     <div class="ads-grid_shop">
@@ -53,86 +54,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3>Chec<span>kout</span></h3>
 
                 <div class="checkout-right">
-                    <h4>Your shopping cart contains: <span>3 Products</span></h4>
+                    <h4>Số lượng sản phẩm: <span>@Html.Action("PartialSoLuong", "ShoppingCart") Sản phẩm trong giỏ hàng</span></h4>
                     <table class="timetable_sub">
                         <thead>
                             <tr>
-                                <th>SL No.</th>
                                 <th>Product</th>
                                 <th>Quality</th>
                                 <th>Product Name</th>
 
                                 <th>Price</th>
-                                <th>Remove</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="rem1">
-                                <td class="invert">1</td>
-                                <td class="invert-image"><a href="single.html"><img src="/Content/images/s1.jpg" alt=" " class="img-responsive"></a></td>
-                                <td class="invert">
-                                    <div class="quantity">
-                                        <div class="quantity-select">
-                                            <div class="entry value-minus">&nbsp;</div>
-                                            <div class="entry value"><span>1</span></div>
-                                            <div class="entry value-plus active">&nbsp;</div>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="rem1">
+                                    <td class="invert-image"><img src="@Url.Content("/productmanager/Image/"+item.iMaSP)" alt=" " class="img-responsive"></td>
+                                    <td class="invert">
+                                        <div class="quantity">
+                                            <div class="quantity-select">
+                                                <div class="entry value-minus">&nbsp;</div>
+                                                <div class="entry value"><span>@item.isoLuong</span></div>
+                                                <div class="entry value-plus active">&nbsp;</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="invert">Bella Toes</td>
+                                    </td>
+                                    <td class="invert">@item.iTenSP</td>
 
-                                <td class="invert">$675.00</td>
-                                <td class="invert">
-                                    <div class="rem">
-                                        <div class="close1"> </div>
-                                    </div>
-
-                                </td>
-                            </tr>
-                            <tr class="rem2">
-                                <td class="invert">2</td>
-                                <td class="invert-image"><a href="single.html"><img src="/Content/images/s5.jpg" alt=" " class="img-responsive"></a></td>
-                                <td class="invert">
-                                    <div class="quantity">
-                                        <div class="quantity-select">
-                                            <div class="entry value-minus">&nbsp;</div>
-                                            <div class="entry value"><span>1</span></div>
-                                            <div class="entry value-plus active">&nbsp;</div>
+                                    <td class="invert">@item.thanhTien</td>
+                                    <td class="invert">
+                                        <div class="rem">
+                                            <div class="close1"> </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="invert">Red Bellies</td>
 
-                                <td class="invert">$325.00</td>
-                                <td class="invert">
-                                    <div class="rem">
-                                        <div class="close2"> </div>
-                                    </div>
+                                    </td>
+                                    
 
-                                </td>
+                                    <td colspan="6" style="text-align:right">
+                                        @Html.ActionLink("Chinh sua gio hang", "EditShoppingCart")
+                                    </td>
+                                    
+                                 
                             </tr>
-                            <tr class="rem3">
-                                <td class="invert">3</td>
-                                <td class="invert-image"><a href="single.html"><img src="/Content/images/s2.jpg" alt=" " class="img-responsive"></a></td>
-                                <td class="invert">
-                                    <div class="quantity">
-                                        <div class="quantity-select">
-                                            <div class="entry value-minus">&nbsp;</div>
-                                            <div class="entry value"><span>1</span></div>
-                                            <div class="entry value-plus active">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="invert">Chikku Loafers</td>
+                            }
 
-                                <td class="invert">$405.00</td>
-                                <td class="invert">
-                                    <div class="rem">
-                                        <div class="close3"> </div>
-                                    </div>
 
-                                </td>
-                            </tr>
 
                         </tbody>
                     </table>
@@ -141,11 +108,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-4 checkout-left-basket">
                         <h4>Continue to basket</h4>
                         <ul>
-                            <li>Product1 <i>-</i> <span>$675.00 </span></li>
-                            <li>Product2 <i>-</i> <span>$325.00 </span></li>
-                            <li>Product3 <i>-</i> <span>$405.00 </span></li>
-                            <li>Total Service Charges <i>-</i> <span>$55.00</span></li>
-                            <li>Total <i>-</i> <span>$1405.00</span></li>
+                            
+                            <li>Total <i>-</i> <span>@Html.Action("PartialTotal", "ShoppingCart")</span></li>
                         </ul>
                     </div>
                     <div class="col-md-8 address_form">
@@ -165,18 +129,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <input class="form-control" type="text" placeholder="Mobile number">
                                                 </div>
                                             </div>
-                                            <div class="card_number_grid_right">
-                                                <div class="controls">
-                                                    <label class="control-label">Landmark: </label>
-                                                    <input class="form-control" type="text" placeholder="Landmark">
-                                                </div>
-                                            </div>
+                                            
                                             <div class="clear"> </div>
                                         </div>
-                                        <div class="controls">
-                                            <label class="control-label">Town/City: </label>
-                                            <input class="form-control" type="text" placeholder="Town/City">
-                                        </div>
+                                        
                                         <div class="controls">
                                             <label class="control-label">Address type: </label>
                                             <select class="form-control option-w3ls">

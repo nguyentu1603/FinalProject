@@ -74,13 +74,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <!-- cart details -->
                 <div class="top_nav_right">
-                    <div class="shoecart shoecart2 cart cart box_1">
-                        <form action="#" method="post" class="last">
-                            <input type="hidden" name="cmd" value="_cart">
-                            <input type="hidden" name="display" value="1">
-                            <button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
+                    <div class="cart">
+
+                        <div class=""> <a href="@Url.Action("ShoppingCart","ShoppingCart")"><i class="fa fa-shopping-cart"></i>@Html.Action("PartialSoLuong", "ShoppingCart") Giỏ hàng</a> </div>
+
+                    </div> <!-- .cart -->
+                </div>
                 </div>
             </div>
         </div>
@@ -204,6 +203,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+                <div class="beta-comp">
+                   
                 <!-- The Modal -->
 
             </div>

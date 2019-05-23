@@ -173,10 +173,13 @@
     <Compile Include="Controllers\ManageOrdersController.cs" />
     <Compile Include="Controllers\ManageProductsController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
+    <Compile Include="Controllers\productsController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>DownyData.tt</DependentUpon>
     </Compile>
@@ -413,7 +416,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\CheckOut\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\EditContact\Index.cshtml" />
     <Content Include="Views\ManageContact\Index.cshtml" />
@@ -432,6 +434,11 @@
     <Content Include="Views\ManageOrders\Index.cshtml" />
     <Content Include="Views\ManageOrders\OrderDetails.cshtml" />
     <Content Include="Views\ManageOrders\Edit.cshtml" />
+    <Content Include="Views\products\product_detail.cshtml" />
+    <Content Include="Views\ShoppingCart\ShoppingCart.cshtml" />
+    <Content Include="Views\ShoppingCart\PartialSoLuong.cshtml" />
+    <Content Include="Views\ShoppingCart\EditShoppingCart.cshtml" />
+    <Content Include="Views\ShoppingCart\PartialTotal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

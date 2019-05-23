@@ -1,0 +1,79 @@
+﻿@using EcomShoes_Webshop.Models;
+@model List<Cart>
+@{
+    ViewBag.Title = "EditShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    span.amount {
+        color: #030303;
+        font-size: 16px;
+    }
+</style>
+
+<h2>EditShoppingCart</h2>
+<table class="shop_table beta-shopping-cart-table" cellspacing="0">
+    <thead>
+        <tr>
+            <th class="product-name">Product</th>
+            <th class="product-price">Price</th>
+            <th class="product-quantity">Qty.</th>
+            <th class="product-subtotal">Total</th>
+            <th class="product-remove">Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="cart_item">
+                <td class="product-name">
+                    <div class="media">
+                        <img class="pull-left" src="@Url.Content("~/productmanager/Image/"+item.iMaSP)" alt="">
+                        <div class="media-body">
+                            <p class="font-large table-title">@item.iTenSP</p>
+                        @if (@item.itype == 0)
+                        {
+                            <p class="table-option">Nam</p>
+                        }
+                        else
+                        {
+                            <p class="table-option">Nu</p>
+                        }
+                    </div>
+                </div>
+            </td>
+            <td class="product-price">
+                <span class="amount">
+                    @string.Format("{0:0,0}", item.idonGia.ToString()) VND
+                </span>
+            </td>
+            <td class="product-quantity">
+                @using (Html.BeginForm("UpdateShoppingCart", "ShoppingCart", new { @iMaSP = item.iMaSP }))
+                {
+                    <p>
+                        @Html.TextBox("txtSoLuong", item.isoLuong)
+                    </p>
+                    <input type="submit" value="Cap Nhat" />
+                }
+
+            </td>
+            <td class="product-subtotal">
+                <span class="amount">
+                    @string.Format("{0:0,0}", item.thanhTien) VND
+                </span>
+            </td>
+            <td class="product-remove">
+                <a href="#" class="remove" title="Remove this item">
+                    <i class="fa fa-trash-o"></i>
+                    @Html.ActionLink("xoa", "DeleteShoppingCart", new { @iMaSP = item.iMaSP })
+                </a>
+            </td>
+        </tr>
+        }
+
+
+    </tbody>
+    </table>
+
+
+
