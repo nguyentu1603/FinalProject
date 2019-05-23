@@ -44,12 +44,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <p>
                         @if (Model.OriginalPrice > Model.SalePrice)
                         {
-                            <span class="item_price">@Model.OriginalPrice</span>
-                            <del>@Model.SalePrice</del>
+                            <span class="item_price">@String.Format("{0:0,0}", Model.OriginalPrice) ₫</span>
+                            <del>@String.Format("{0:0,0}", Model.SalePrice)₫</del>   
                         }
                         else
                         {
-                            <span class="item_price">@Model.OriginalPrice</span>
+                            <span class="item_price">@String.Format("{0:0,0}", Model.OriginalPrice)₫</span>
                         }
 
                     </p>

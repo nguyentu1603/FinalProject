@@ -28,5 +28,21 @@ namespace EcomShoes_Webshop.Controllers
 
             return View();
         }
+        public ActionResult Search(string text)
+        {
+            var itemsz = db.Products.Where(x => x.ProductName.ToLower().Contains(text.ToLower())).ToList();
+
+            if (itemsz.Count() > 0)
+            {
+                //ViewBag.Message = "";
+            }
+            else
+            {
+                ViewBag.Message = "No Item found";
+
+            }
+            ViewData["Item"] = itemsz;
+            return View(itemsz);
+        }
     }
 }

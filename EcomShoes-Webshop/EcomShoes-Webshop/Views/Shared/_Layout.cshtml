@@ -49,6 +49,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
+    <style>
+        .gh {
+            margin-left: -71px;
+            margin-top: 8px;
+            color: white;
+            font-size: 17px;
+        }   F
+    </style>
     <!-- banner -->
     <div class="banner_top innerpage" id="home">
         <div class="wrapper_top_w3layouts">
@@ -76,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="top_nav_right">
                     <div class="cart">
 
-                        <div class=""> <a href="@Url.Action("ShoppingCart","ShoppingCart")"><i class="fa fa-shopping-cart"></i>@Html.Action("PartialSoLuong", "ShoppingCart") Giỏ hàng</a> </div>
+                        <div class="gh"> <a href="@Url.Action("ShoppingCart","ShoppingCart")"><i class="fa fa-shopping-cart"></i>@Html.Action("PartialSoLuong", "ShoppingCart") Giỏ hàng</a> </div>
 
                     </div> <!-- .cart -->
                 </div>
@@ -92,8 +100,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </div>
             <div id="cd-search" class="cd-search">
-                <form action="#" method="post">
-                    <input name="Search" type="search" placeholder="Click enter after typing...">
+                <form action="@Url.Action("Search", "Home")" method="post">
+                    <input name="text" type="search" placeholder="Click enter after typing...">
                 </form>
             </div>
         </div>
