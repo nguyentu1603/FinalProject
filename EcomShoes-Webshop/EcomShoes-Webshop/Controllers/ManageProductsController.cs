@@ -42,6 +42,15 @@ namespace EcomShoes_Webshop.Controllers
                 ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
             }
         }
+        private void checkQuantityAndStatus(Product model) {
+            if (model.Quantity>0 && model.Status=="DEACTIVE") {
+                ModelState.AddModelError("Status", "Số lượng sản phẩm lớn hơn 0, vui lòng chọn lại");
+
+            }
+            else if (model.Quantity <= 0 && model.Status == "ACTIVE") {
+                ModelState.AddModelError("Status", "Số lượng sản phẩm bằng 0, vui lòng chọn lại");
+            }
+        }
       
         // GET: /ManageProducts/Details/5
         public ActionResult Details(int? id)
@@ -158,6 +167,7 @@ namespace EcomShoes_Webshop.Controllers
         {
             checkPrice(product);
             checkProductCodeEdit(product);
+            checkQuantityAndStatus(product);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
@@ -212,8 +222,8 @@ namespace EcomShoes_Webshop.Controllers
             var inOrder = db.OrderDetails.Where(x => x.ProductID == id);
             if (inOrder.Count() != 0)
             {
-                TempData["msg"] = "<script>alert('Sản phẩm hiện tại đang tồn tại trong giỏ hàng. Vui lòng thực hiện sau');</script>";
-                
+                TempData["msg"] = "<script>alert('Sản phẩm hiện tại đang tồn tại trong giỏ hàng!!! Vui lòng thực hiện sau khi sản phẩm này không còn có trong đơn hàng nào.');</script>";
+               
             }
             else
             {
