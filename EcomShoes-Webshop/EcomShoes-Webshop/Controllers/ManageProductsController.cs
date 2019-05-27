@@ -180,7 +180,10 @@ namespace EcomShoes_Webshop.Controllers
                     //add file to app_data
                     var path = Server.MapPath("~/App_Data");
                     path = System.IO.Path.Combine(path, product.ID.ToString());
-                    Request.Files["Image"].SaveAs(path);
+                    if (Request.Files["Image"].ContentLength != 0)
+                    {
+                        Request.Files["Image"].SaveAs(path);
+                    }
                     product.ImageURL = path; //gán đường dẫn vào ImageURL
                     //All done successfully
                     db.SaveChanges(); // save lại đường dẫn
