@@ -1,0 +1,50 @@
+﻿@model EcomShoes_Webshop.Models.ContactDetail
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Edit reply
+    </header>
+    <div class="panel-body">
+        <form action="#" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value="fHRSDW7bMX-nGXUen8Aa_sUFKhQvotA9OrXctapKCJhGlE1x07BMvJlJ6eNsnLq2sJjMVHeggYOCJTW-9Ssgj-GMIQSp0LDJRva4QusisZQAu-3k36_2SC7uUx3acad6y7t903650TxTBYKO5p0Pww2">            <div class="form-horizontal">
+
+                @Html.HiddenFor(model => model.id)
+                @Html.HiddenFor(model => model.CreatedDate)
+                @Html.HiddenFor(model => model.ContactID)
+
+
+                @Html.LabelFor(model => model.Message, "Message", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Message)
+                    @Html.ValidationMessageFor(model => model.Message)
+                </div>
+                @Html.LabelFor(model => model.EmployeeName, "Employee Name", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EmployeeName)
+                    @Html.ValidationMessageFor(model => model.EmployeeName)
+                </div>
+                <div class="form-group">
+                    <div class=" col-lg-10">
+                        <input type="submit" value="LƯU" class="btn btn-danger">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="panel-heading">
+                        <a class="btn btn-info" href="/ManageContact/Index">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
