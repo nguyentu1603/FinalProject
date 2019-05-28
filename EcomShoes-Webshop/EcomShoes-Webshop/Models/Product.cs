@@ -28,7 +28,7 @@ namespace EcomShoes_Webshop.Models
         [Required]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "ProductCode phải bắt đầu với 2 kí tự đầu là chữ và in hoa và có độ dài từ 3 - 15 kí tự")]
         public string ProductCode { get; set; }
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "ProductName chỉ chứa được từ 3 - 50 kí tự")]
         [Required]
         public string ProductName { get; set; }
         public decimal SalePrice { get; set; }
