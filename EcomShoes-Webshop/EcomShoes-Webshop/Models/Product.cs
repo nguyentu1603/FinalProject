@@ -24,7 +24,7 @@ namespace EcomShoes_Webshop.Models
 
 
         public int ID { get; set; }
-        [RegularExpression(@"^[A-Z]+[0-9]*$")]
+        [RegularExpression(@"^[A-Z]+[0-9]*$",ErrorMessage = "ProductCode phải bắt đầu với 2 kí tự đầu là chữ và in hoa và có độ dài từ 3 - 15 kí tự")]
         [Required]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "ProductCode phải bắt đầu với 2 kí tự đầu là chữ và in hoa và có độ dài từ 3 - 15 kí tự")]
         public string ProductCode { get; set; }
