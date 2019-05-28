@@ -151,10 +151,9 @@ namespace EcomShoes_Webshop.Controllers
                 }
                 db.SaveChanges();
 
-                Session["Giohang"] = null;
-
-                return RedirectToAction("Index", "Home");
+                Session["Giohang"] = null;   
             }
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
