@@ -14,6 +14,17 @@ namespace EcomShoes_Webshop.Controllers
     {
         private K23T3aEntities db = new K23T3aEntities();
 
+        public List<Cart> GetShoppingCart()
+        {
+            List<Cart> listCart = Session["Giohang"] as List<Cart>;
+            if(listCart == null)
+            {
+                listCart = new List<Cart>();
+                Session["Giohang"] = listCart;
+            }
+            return listCart;
+        }
+
         // GET: /ManageOrders/
         public ActionResult Index()
         {
@@ -105,6 +116,45 @@ namespace EcomShoes_Webshop.Controllers
         {
                 var  orderdetail = db.OrderDetails.Find(id);          
                 return View(orderdetail);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                List<Cart> cart = GetShoppingCart();
+                order.CreatedDate = DateTime.Now;
+                order.Status = 1;
+
+                db.Orders.Add(order);
+
+                foreach(var item in cart)
+                {
+                    OrderDetail orderdetail = new OrderDetail();
+                    orderdetail.OrderID = order.id;
+                    orderdetail.ProductID = item.iMaSP;
+                    orderdetail.Quantity = (int)item.isoLuong;
+                    orderdetail.Price = Convert.ToDecimal(item.thanhTien);
+                    db.OrderDetails.Add(orderdetail);
+                    order.TotalPrice += Convert.ToDecimal(item.thanhTien);
+                    db.Orders.Add(order);
+                    Product product = db.Products.Find(item.iMaSP);
+                    product.Quantity = product.Quantity - item.isoLuong;
+                    db.Entry(product).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+
+                Session["Giohang"] = null;
+
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         protected override void Dispose(bool disposing)
