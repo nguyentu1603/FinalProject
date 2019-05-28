@@ -31,7 +31,7 @@ namespace EcomShoes_Webshop.Controllers
             // x.ProductCode: giá trị trong database; model.ProductCode: giá trị trong view
             var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode);//kiểm tra sự tồn tại
             if (isProductCodeExist) {
-                ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
+                ModelState.AddModelError("ProductCode", RangBuoc.codeProduct_Exist);
             }
         }
         private void checkProductCodeEdit(Product model)
@@ -39,19 +39,26 @@ namespace EcomShoes_Webshop.Controllers
             var isProductCodeExist = db.Products.Any(x => x.ProductCode == model.ProductCode && x.ID != model.ID);
             if (isProductCodeExist)
             {
-                ModelState.AddModelError("ProductCode", "Đã tồn tại mã sản phẩm này");
+                ModelState.AddModelError("ProductCode", RangBuoc.codeProduct_Exist);
             }
         }
         private void checkQuantityAndStatus(Product model) {
             if (model.Quantity>0 && model.Status=="DEACTIVE") {
-                ModelState.AddModelError("Status", "Số lượng sản phẩm lớn hơn 0, vui lòng chọn lại");
+                ModelState.AddModelError("Status", RangBuoc.deactive_Product);
 
             }
             else if (model.Quantity <= 0 && model.Status == "ACTIVE") {
-                ModelState.AddModelError("Status", "Số lượng sản phẩm bằng 0, vui lòng chọn lại");
+                ModelState.AddModelError("Status",RangBuoc.active_Product);
             }
         }
-      
+        private void checkProductCode(Product model)
+        {
+            if (model.ProductCode.Length < 2 && model.ProductCode.Length > 15)
+            {
+                ModelState.AddModelError("Status","Vui lòng nhập lại đúng định dạng");
+            }
+            
+        }
         // GET: /ManageProducts/Details/5
         public ActionResult Details(int? id)
         {
@@ -91,8 +98,10 @@ namespace EcomShoes_Webshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
+            checkProductCode(product);
             checkPrice(product); //Kiểm tra giá trị giá gốc và giá bán phải lớn hơn 0.
             checkProductCodeCreate(product); //Kiểm tra mã sản phẩm đã tồn tại hay chưa.
+            checkQuantityAndStatus(product); //Kiểm tra mốc số lượng và tình trạng
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
@@ -131,18 +140,14 @@ namespace EcomShoes_Webshop.Controllers
         {
             if (model.SalePrice <= 0 && model.OriginalPrice <= 0)
             {
-                ModelState.AddModelError("SalePrice", "Nhập giá lớn hơn 0");
-                ModelState.AddModelError("OriginalPrice", "Nhập giá lớn hơn 0");
+                ModelState.AddModelError("SalePrice", RangBuoc.price_Less_0);
+                ModelState.AddModelError("OriginalPrice", RangBuoc.price_Less_0);
             }
         }
 
         // GET: /ManageProducts/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             var statusItems = new[]
             {
                 new { Id = "DEACTIVE", Name = "Hết hàng" },
@@ -202,12 +207,8 @@ namespace EcomShoes_Webshop.Controllers
         }
 
         // GET: /ManageProducts/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Product product = db.Products.Find(id);
             if (product == null)
             {

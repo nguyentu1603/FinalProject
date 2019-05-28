@@ -36,40 +36,60 @@ namespace EcomShoes_Webshop.Tests.Controllers
         [TestMethod]
         public void TestCreateP()
         {
-            var model = new Product
-            {
-                //Name = "Socola",
-                //Topping = "Tran chau",
-                //Price = 0
-
-            };
-            var db = new ManageProductsController();
+           
+        }
+        
+        [TestMethod]
+        public void TestEditG()
+        {
+            var db = new K23T3aEntities();
+            var item = db.Products.First();
             var controller = new ManageProductsController();
 
+            var result = controller.Edit(0);
+            Assert.IsInstanceOfType(result, typeof(HttpNotFoundResult));
 
-            using (var scope = new TransactionScope())
-            {
-                var result = controller.Create(model);
-                var view = result as ViewResult;
-                Assert.IsNotNull(view);
-                Assert.IsInstanceOfType(view.Model, typeof(Product));
+            result = controller.Edit(item.ID);
+            var view = result as ViewResult;
+            Assert.IsNotNull(view);
+            var model = view.Model as Product;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(item.ID, model.ID);
+            Assert.AreEqual(item.CategoryID, model.CategoryID);
+            Assert.AreEqual(item.CreatedDate, model.CreatedDate);
+            Assert.AreEqual(item.OriginalPrice, model.OriginalPrice);
+            Assert.AreEqual(item.SalePrice ,model.SalePrice);
+            Assert.AreEqual(item.Description, model.Description);
+            Assert.AreEqual(item.Size, model.Size);
+            Assert.AreEqual(item.ProductCode, model.ProductCode);
+            Assert.AreEqual(item.Status, model.Status);
+        }
+      
+        [TestMethod]
+        public void TestDelete()
+        {
+            ManageProductsController controller = new ManageProductsController();
+            ViewResult result = controller.Delete(0) as ViewResult;   
+            Assert.IsNull(result);
+        }
+        [TestMethod]
+        public void TestDetails()
+        {
+            var db = new K23T3aEntities();
+            var item = db.Products.First();
+            var controller = new ManageProductsController();
 
+            var result = controller.Details(item.ID);
+            var view = result as ViewResult;
+            Assert.IsNotNull(view);
 
-                //    model.Price = 26000;
-                //    controller = new ManageProductsController();
+            var model = view.Model as Product;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(item.ID, model.ID);
 
-                //    result = controller.Create(model);
-                //    var redirect = result as RedirectToRouteResult;
-
-                //    Assert.IsNotNull(redirect);
-                //    Assert.AreEqual("Index", redirect.RouteValues["action"]);
-                //    var item = db.
-                //    Assert.IsNotNull(item);
-                //    Assert.AreEqual(model.Name, item.Name);
-                //    Assert.AreEqual(model.Price, item.Price);
-                //    Assert.AreEqual(model.Topping, item.Topping);
-                //}
-            }
+            result = controller.Details(0);
+            Assert.IsInstanceOfType(result, typeof(HttpNotFoundResult));
         }
     }
+    
 }
