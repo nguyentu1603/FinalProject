@@ -22,7 +22,7 @@ namespace EcomShoes_Webshop.Controllers
         }
         public ActionResult Image(string id)
         {
-            var path = Server.MapPath("~/App_Data"); // đường dẫn chứa tệp hình ảnh của sản phẩm
+            var path = Server.MapPath("~/Content/Images"); // đường dẫn chứa tệp hình ảnh của sản phẩm
             path = System.IO.Path.Combine(path, id); // tên hình ảnh là id của mã sản phẩm
             return File(path, "image/*");
         }
@@ -114,7 +114,7 @@ namespace EcomShoes_Webshop.Controllers
 
                     //gán hình vào file app_data
 
-                    var path = Server.MapPath("~/App_Data");
+                    var path = Server.MapPath("~/Content/Images");
                     path = System.IO.Path.Combine(path, product.ID.ToString()); //file ảnh sản phẩm sẽ có tên là id của sẩn phẩm.
                     Request.Files["Image"].SaveAs(path);
                     product.ImageURL = path; //ImageURL sẽ lưu đường dẫn tới file ảnh.
@@ -183,7 +183,7 @@ namespace EcomShoes_Webshop.Controllers
 
                     db.SaveChanges();
                     //add file to app_data
-                    var path = Server.MapPath("~/App_Data");
+                    var path = Server.MapPath("~/Content/Images");
                     path = System.IO.Path.Combine(path, product.ID.ToString());
                     if (Request.Files["Image"].ContentLength != 0)
                     {

@@ -13,9 +13,7 @@
         <div class="adv-table editable-table ">
             <div class="clearfix">
                 <div class="btn-group">
-                    <a href="/ManageCategories/Create" class="btn green" style="border: 1px solid; background: gainsboro">
-                        Tạo mới <i class="icon-plus"></i>
-                    </a>
+                    <a @Html.ActionLink("Tạo mới", "Create", "ManageProducts", htmlAttributes: new { @class = "btn btn-primary btn-xs" })</a>
                 </div>
             </div>
             <div class="space15"></div>

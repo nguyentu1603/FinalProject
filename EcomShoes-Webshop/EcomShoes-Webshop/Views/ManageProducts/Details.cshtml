@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProductCode)
+            @Html.EditorFor(model => model.ProductCode)
         </dd>
 
         <dt>
@@ -24,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProductName)
+            @Html.EditorFor(model => model.ProductName)
         </dd>
 
         <dt>
@@ -32,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SalePrice)
+            @Html.EditorFor(model => model.SalePrice)
         </dd>
 
         <dt>
@@ -40,7 +40,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OriginalPrice)
+            @Html.EditorFor(model => model.OriginalPrice)
         </dd>
 
         <dt>
@@ -48,7 +48,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ImageURL)
+            @Html.EditorFor(model => model.ImageURL)
         </dd>
 
         <dt>
@@ -56,7 +56,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
+            @Html.EditorFor(model => model.CreatedDate)
         </dd>
 
         <dt>
@@ -64,7 +64,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UpdateDate)
+            @Html.EditorFor(model => model.UpdateDate)
         </dd>
 
         <dt>
@@ -72,7 +72,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.EditorFor(model => model.Description)
         </dd>
 
         <dt>
@@ -80,7 +80,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @Html.EditorFor(model => model.Status)
         </dd>
 
         <dt>
@@ -88,7 +88,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Quantity)
+            @Html.EditorFor(model => model.Quantity)
         </dd>
 
         <dt>
@@ -96,7 +96,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Size)
+            @Html.EditorFor(model => model.Size)
         </dd>
 
         <dt>
@@ -104,7 +104,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Category.NameCategory)
+            @Html.EditorFor(model => model.Category.NameCategory)
         </dd>
 
     </dl>
@@ -131,73 +131,80 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.CategoryID, "Danh mục", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.CategoryID, "Danh mục", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.Category.NameCategory)
+                        @Html.EditorFor(model => model.Category.NameCategory, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ProductCode, "Mã sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2" })
+                    @Html.LabelFor(model => model.ProductCode, "Mã sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.ProductCode)
+                        @Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ProductName, "Tên sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.ProductName, "Tên sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.ProductName)
+                        @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.SalePrice, "Giá bán", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.SalePrice, "Giá bán", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.SalePrice)
+                        @Html.EditorFor(model => model.SalePrice, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.OriginalPrice, "Giá gốc", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.OriginalPrice, "Giá gốc", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.OriginalPrice)
+                        @Html.EditorFor(model => model.OriginalPrice, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Quantity, "Số lượng", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.Quantity, "Số lượng", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.Quantity)
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Description, "Mô tả sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.Description, "Mô tả sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.DisplayFor(model => model.Description)
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-lg-10">
-                     @Html.DisplayFor(model => model.Status)
+                     @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-lg-10">
-                  @Html.DisplayFor(model => model.Size)
+                  @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.CreatedDate,"Ngày khởi tạo", new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CreatedDate)
+                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UpdateDate, new { htmlAttributes = new { @readonly = true, @class = "form-control" } })
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-﻿@Model EcomShoes_Webshop.Models.OrderDetail
+﻿@model EcomShoes_Webshop.Models.OrderDetail
 
 @{
     ViewBag.Title = "Chi tiết đơn hàng";
@@ -10,8 +10,11 @@
     </header>
     <div class="panel-body">
         <ul class="nav nav-pills nav-tabs">
-            <li class="active"><a data-toggle="pill" href="#home">Ðơn hàng</a></li>
-            <li><a data-toggle="pill" href="#menu1">Khách hàng</a></li>
+            <li class="active">
+            <a data-toggle="pill" href="#home">Ðơn hàng</a>
+            </li>
+            <li><a data-toggle="pill" href="#menu1">Khách hàng</a>
+            </li>
         </ul>
 
         <div class="tab-content">
@@ -43,14 +46,14 @@
                     <tbody>
                             <tr>
                                 <td>
-                                    <img src="@Url.Action("Image", new { id = @Model.ProductID})" style="width: 80px" />
+                                    <img src="@Url.Action("Image","ManageProducts", new { id = @Model.ProductID})" style="width: 80px" />
 
                                 </td>
                                 <td>
                                     @Model.Product.ProductName
                                 </td>
                                 <td>
-                                    @Model.Price.ToString("N0")
+                                    @Model.Price.ToString("N0") VND
                                 </td>
                                 <td>
                                     @Model.Quantity                                   
@@ -148,6 +151,7 @@
                 </div>
             </div>
         </div>
+    
     </div>
 
     <div class="panel-heading">
