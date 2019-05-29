@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Xóa sản phẩm</h2>
+@*<h2>Xóa sản phẩm</h2>
 
 <h3>Bạn có chắc muốn xóa sản phẩm này?</h3>
 <div>
@@ -100,4 +100,95 @@
             @Html.ActionLink("Trở về", "Index")
         </div>
     }
-</div>
+</div>*@
+<section class="panel">
+    <header class="panel-heading">
+        Chi tiết sản phẩm
+    </header>
+    <div class="panel-body">
+        @using (Html.BeginForm("Delete", "ManageProducts"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="1339" class="control-label col-md-2">Hình ảnh</label>
+                    <td>
+                        <img src="@Url.Action("Image", new { id = Model.ID})" style="width: 300px" class="img-thumbnail" />
+                    </td>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryID, "Danh mục", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DisplayFor(model => model.Category.NameCategory)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductCode, "Mã sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2" })
+                    <div class="col-sm-10">
+                        @Html.DisplayFor(model => model.ProductCode)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductName, "Tên sản phẩm", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DisplayFor(model => model.ProductName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SalePrice, "Giá bán", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DisplayFor(model => model.SalePrice)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OriginalPrice, "Giá gốc", htmlAttributes: new { @class = "control-label col-lg-2 col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DisplayFor(model => model.OriginalPrice)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CreatedDate, "Ngày khởi tạo", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </div>
+                </div>
+                @Html.Raw(TempData["msg"])
+            </div>
+                <div class="panel-heading">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại", "Index", null, htmlAttributes: new { @class = "btn btn-info" })
+    </div>
+        }
+    </div>
+
+
+
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function readIMG(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#Demo')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

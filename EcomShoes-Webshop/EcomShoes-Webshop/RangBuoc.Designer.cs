@@ -61,7 +61,7 @@ namespace EcomShoes_Webshop {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Số lượng sản phẩm lớn hơn 0, vui lòng chọn lại.
+        ///   Looks up a localized string similar to Số lượng sản phẩm phải lớn hơn 0, vui lòng chọn lại.
         /// </summary>
         public static string active_Product {
             get {
