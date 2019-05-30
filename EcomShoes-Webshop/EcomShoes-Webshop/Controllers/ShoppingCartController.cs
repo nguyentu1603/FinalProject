@@ -189,5 +189,33 @@ namespace EcomShoes_Webshop.Controllers
             ViewBag.TongTien = SumPrice();
             return PartialView();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DatHang()
+        {
+            // Kiem tra don dat hang
+            if (Session["GioHang"] == null)
+            {
+                RedirectToAction("index", "Home");
+            }
+
+            // Them don hang
+            Order order = new Order();
+            List<Cart> cart = GetCart();
+            order.CreatedDate = DateTime.Now;
+            db.Orders.Add(order);
+            db.SaveChanges();
+            // Them chi tiet don hang
+            foreach (var item in cart)
+            {
+                OrderDetail order_Detail = new OrderDetail();
+                order_Detail.OrderID = order.id;
+                order_Detail.ProductID = item.iMaSP;
+                order_Detail.Quantity = (int)item.isoLuong;
+                db.OrderDetails.Add(order_Detail);
+            }
+            db.SaveChanges();
+            return RedirectToAction("index", "Home");
+        }
 	}
 }

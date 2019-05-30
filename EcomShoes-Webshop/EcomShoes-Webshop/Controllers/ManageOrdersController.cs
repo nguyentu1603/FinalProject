@@ -14,7 +14,7 @@ namespace EcomShoes_Webshop.Controllers
     {
         private K23T3aEntities db = new K23T3aEntities();
 
-        public List<Cart> GetShoppingCart()
+        public List<Cart> GetCart()
         {
             List<Cart> listCart = Session["Giohang"] as List<Cart>;
             if(listCart == null)
@@ -129,7 +129,7 @@ namespace EcomShoes_Webshop.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<Cart> cart = GetShoppingCart();
+                List<Cart> cart = GetCart();
                 order.CreatedDate = DateTime.Now;
                 order.Status = 1;
 

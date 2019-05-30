@@ -33,7 +33,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="col-md-4 single-right-left ">
                     <div class="grid images_3_of_2">
                         <div class="flexslider">
-
                             <img src="@Url.Content("~/manageProducts/Image/"+Model.ID)" alt="">
                             <div class="clearfix"></div>
                         </div>
@@ -62,25 +61,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
-                    <div class="description">
-                        <h5>Check delivery, payment options and charges at your location</h5>
-                        <form action="#" method="post">
-                            <input type="text" value="Enter pincode" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter pincode';}"
-                                   required="">
-                            <input type="submit" value="Check">
-                        </form>
-                    </div>
+                    
                     
                     <div class="occasional">
                         <h5>Types :</h5>
                         <div class="colr ert">
-                            <label class="radio"><input type="radio" name="radio" checked=""><i></i>Casual Shoes</label>
-                        </div>
-                        <div class="colr">
-                            <label class="radio"><input type="radio" name="radio"><i></i>Sneakers </label>
-                        </div>
-                        <div class="colr">
-                            <label class="radio"><input type="radio" name="radio"><i></i>Formal Shoes</label>
+                            <label class="radio">@Model.Category.NameCategory</label>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -104,33 +90,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
 
                     </div>
-                    <ul class="social-nav model-3d-0 footer-social social single_page">
-                        <li class="share">Share On : </li>
-                        <li>
-                            <a href="#" class="facebook">
-                                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="twitter">
-                                <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="instagram">
-                                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="pinterest">
-                                <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                            </a>
-                        </li>
-                    </ul>
+                    
 
                 </div>
                 <div class="clearfix"> </div>
@@ -145,7 +105,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="tab1">
 
                                 <div class="single_page">
-                                    <h6>Lorem ipsum dolor sit amet</h6>
+                                    <h6>Thông tin chi tiết của sản phẩm</h6>
                                     <p>
                                        @Model.Description   
                                     </p>
