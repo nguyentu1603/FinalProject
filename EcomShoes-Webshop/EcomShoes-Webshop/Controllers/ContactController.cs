@@ -33,6 +33,16 @@ namespace EcomShoes_Webshop.Controllers
                 {
                     try
                     {
+                        Convert.ToInt32(contact.Phone);
+                    }
+                    catch (Exception)
+                    {
+
+                        return View(contact);
+                    }
+                    try
+                    {
+                       
                         contact.Status = 0;
                         db.Contacts.Add(contact);
                         db.SaveChanges();
@@ -48,10 +58,10 @@ namespace EcomShoes_Webshop.Controllers
                         db.SaveChanges();
                         
                         scope.Complete();
-                        return View(contact);
+                        return RedirectToAction("Index");
                     }
                     catch (Exception)
-                    {
+                    {   
 
 
                     }
