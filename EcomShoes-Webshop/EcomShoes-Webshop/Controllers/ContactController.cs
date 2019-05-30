@@ -48,10 +48,10 @@ namespace EcomShoes_Webshop.Controllers
                         db.SaveChanges();
                         
                         scope.Complete();
-                        return View(contact);
+                        return RedirectToAction("Index");
                     }
                     catch (Exception)
-                    {
+                    {   
 
 
                     }

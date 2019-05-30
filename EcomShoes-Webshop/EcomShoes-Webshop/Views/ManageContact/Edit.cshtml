@@ -7,7 +7,7 @@
 
 <section class="panel">
     <header class="panel-heading">
-        Edit reply
+        Chỉnh sửa trả lời
     </header>
     <div class="panel-body">
         <form action="#" method="post">
@@ -18,12 +18,12 @@
                 @Html.HiddenFor(model => model.ContactID)
 
 
-                @Html.LabelFor(model => model.Message, "Message", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
+                @Html.LabelFor(model => model.Message, "Tin nhắn", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.Message)
                     @Html.ValidationMessageFor(model => model.Message)
                 </div>
-                @Html.LabelFor(model => model.EmployeeName, "Employee Name", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
+                @Html.LabelFor(model => model.EmployeeName, "Nhân viên trả lời", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.EmployeeName)
                     @Html.ValidationMessageFor(model => model.EmployeeName)
