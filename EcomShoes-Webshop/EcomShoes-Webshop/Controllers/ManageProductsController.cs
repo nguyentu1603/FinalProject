@@ -57,6 +57,7 @@ namespace EcomShoes_Webshop.Controllers
             {
                 ModelState.AddModelError("Status","Vui lòng nhập lại đúng định dạng");
             }
+
             
         }
         // GET: /ManageProducts/Details/5
