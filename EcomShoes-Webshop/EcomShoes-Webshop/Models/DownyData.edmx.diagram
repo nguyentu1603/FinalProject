@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bcf0e93f0379418abadcabca1e5343dd" Name="Diagram1" ZoomLevel="108">
+      <Diagram DiagramId="bcf0e93f0379418abadcabca1e5343dd" Name="Diagram1" ZoomLevel="78">
         <EntityTypeShape EntityType="CsK23T3aModel.Category" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="CsK23T3aModel.ContactDetail" Width="1.5" PointX="8" PointY="6" />
-        <EntityTypeShape EntityType="CsK23T3aModel.Contact" Width="1.5" PointX="5.75" PointY="6" />
-        <EntityTypeShape EntityType="CsK23T3aModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.75" />
-        <EntityTypeShape EntityType="CsK23T3aModel.Order" Width="1.5" PointX="3" PointY="5.875" />
+        <EntityTypeShape EntityType="CsK23T3aModel.ContactDetail" Width="1.5" PointX="8.875" PointY="8.75" />
+        <EntityTypeShape EntityType="CsK23T3aModel.Contact" Width="1.5" PointX="10.25" PointY="8.625" />
+        <EntityTypeShape EntityType="CsK23T3aModel.OrderDetail" Width="1.5" PointX="5.5" PointY="1.875" />
+        <EntityTypeShape EntityType="CsK23T3aModel.Order" Width="1.5" PointX="8" PointY="1.375" />
         <EntityTypeShape EntityType="CsK23T3aModel.Product" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="CsK23T3aModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CsK23T3aModel.sysdiagram" Width="1.5" PointX="11.125" PointY="6.75" />
         <AssociationConnector Association="CsK23T3aModel.FK_PRODUCTS_CATEGORYID" />
         <AssociationConnector Association="CsK23T3aModel.FK_CONTACTDETAILS_CONTACTID" />
         <AssociationConnector Association="CsK23T3aModel.FK_ORDERDETAILS_ORDERID" />
