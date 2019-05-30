@@ -83,29 +83,7 @@
     </tbody>
     </table>*@
   <!-- //custom-theme -->
-<link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="~/Content/css/shop.css" type="text/css" media="screen" property="" />
-<link href="~/Content/css/style7.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
-<link href="~/Content/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
-<!-- Owl-carousel-CSS -->
-<link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui1.css">
-<link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- font-awesome-icons -->
-<link href="~/Content/css/font-awesome.css" rel="stylesheet">
-<!-- //custom-theme -->
-<link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="~/Content/css/shop.css" type="text/css" media="screen" property="" />
-<link href="~/Content/css/style7.css" rel="stylesheet" type="text/css" media="all" />
-<!-- Owl-carousel-CSS -->
-<link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui1.css">
-<link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- font-awesome-icons -->
-<link href="~/Content/css/font-awesome.css" rel="stylesheet">
-<!-- //font-awesome-icons -->
-<link href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-      rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+
 <div class="ads-grid_shop">
     <div class="shop_inner_inf">
         <div class="privacy about">
@@ -126,8 +104,8 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>
-                                    <img  src="@Url.Content("~/manageProducts/Image/"+item.iMaSP)" alt="">
+                                <td class="invert-image">
+                                    <img src="@Url.Content("~/manageProducts/Image/"+item.iMaSP)" alt=" ">
                                 </td>
                                 <td>
                                      <p class="font-large table-title">@item.iTenSP</p>
@@ -137,8 +115,9 @@
                                     {
                                         <p>
                                             @Html.TextBox("txtSoLuong", item.isoLuong)
+                                            <input type="submit" value="Thay đổi" />
                                         </p>
-                                        <input type="submit" value="Cap Nhat" />
+                                      
                                     }
                                 </td>
                                 <td>
@@ -161,9 +140,9 @@
                 <div class="col-md-4 checkout-left-basket">
                     <h4>Tổng giá</h4>
                     <ul>
-                        <span>
-                         
-                        </span>
+                        <ul>
+                            <li>Total <i>-</i> <span> @Html.Action("PartialTotal", "ShoppingCart") VND </span></li>
+                        </ul>
                     </ul>
                 </div>
                 <div class="clearfix"> </div>

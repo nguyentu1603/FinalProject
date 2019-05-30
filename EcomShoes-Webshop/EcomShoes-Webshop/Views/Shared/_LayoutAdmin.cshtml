@@ -40,11 +40,15 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <li>
+                <li class="sub-menu">
                     <a class="active" href="/">
                         <i class="icon-laptop"></i>
                         <span>Home</span>
                     </a>
+                    <ul class="sub">
+                        <li>@Html.ActionLink("Giao diện người dùng", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Giao diện admin", "Index", "ManageProducts", new { area = "" }, null)</li>
+                    </ul>
                 </li>
 
                 <li class="sub-menu">

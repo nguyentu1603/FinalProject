@@ -5,7 +5,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    img {
+        vertical-align: middle;
+        width: 100px;
+    }
+</style>
 <body>
     <!-- banner -->
     <!-- //banner -->
@@ -15,7 +20,8 @@
             <div class="privacy about">
                 <h3>Chec<span>kout</span></h3>
                 <div class="checkout-right">
-                    <h4>Số lượng sản phẩm: <span>@Html.Action("PartialSoLuong", "ShoppingCart") Sản phẩm trong giỏ hàng</span></h4>
+                    <h4>Số lượng sản phẩm: <span>@Html.Action("PartialSoLuong", "ShoppingCart") Sản phẩm trong giỏ hàng</span> | @Html.ActionLink("Chỉnh sửa giỏ hàng", "EditShoppingCart")
+                    </h4>
                     <table class="timetable_sub">
                         <thead>
                             <tr>
@@ -29,22 +35,17 @@
                             @foreach (var item in Model)
                             {
                                 <tr class="rem1">
-                                    <td class="invert-image"><img src="@Url.Content("/productmanager/Image/"+item.iMaSP)" alt=" " class="img-responsive"></td>
+                                    <td class="invert-image">
+                                    <img src="@Url.Content("~/manageProducts/Image/"+item.iMaSP)" alt=" "></td>
                                     <td class="invert">
                                         <div class="quantity">
                                             <div class="quantity-select">
-                                                <div class="entry value-minus">&nbsp;</div>
                                                 <div class="entry value"><span>@item.isoLuong</span></div>
-                                                <div class="entry value-plus active">&nbsp;</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td >@item.iTenSP</td>
-                                    <td >@item.thanhTien</td>
-         
-                                    <td colspan="6" style="text-align:right">
-                                        @Html.ActionLink("Chinh sua gio hang", "EditShoppingCart")
-                                    </td>
+                                    <td >@item.thanhTien</td>  
                             </tr>
                             }
                         </tbody>
@@ -52,21 +53,17 @@
                 </div>
                 <div class="checkout-left">
                     <div class="col-md-4 checkout-left-basket">
-                        <h4>Continue to basket</h4>
+                        <h4>Tổng giá của đơn hàng</h4>
                         <ul>
-                            <li>Total <i>-</i> <span>@Html.Action("PartialTotal", "ShoppingCart")</span></li>
+                            <li>Total <i>-</i> <span> @Html.Action("PartialTotal", "ShoppingCart") VND </span></li>
                         </ul>
+                       
                     </div>
                     <div class="checkout-right-basket">
                         <a href="@Url.Action("Create", "ManageOrders")" > Tiến hành đặt hàng
                         </a>
                     </div>
-                    @using (Html.BeginForm("Create", "ManageOrders", FormMethod.Post))
-                    {
-                        <a href="@Url.Action("Create", "ManageOrders")">
-                            <input type="submit" value="Tiến hành đặt hàng" />
-                        </a>
-                    }
+                
                 </div>
             </div>
         </div>

@@ -8,9 +8,9 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "ManageOrders")) 
 {
-@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
         <h4>Order</h4>
@@ -18,10 +18,10 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OrderCode, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.id)
-                @Html.ValidationMessageFor(model => model.id)
+                @Html.EditorFor(model => model.OrderCode)
+                @Html.ValidationMessageFor(model => model.OrderCode)
             </div>
         </div>
 

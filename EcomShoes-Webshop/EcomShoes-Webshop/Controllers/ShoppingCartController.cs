@@ -25,7 +25,7 @@ namespace EcomShoes_Webshop.Controllers
             return lstcart;
         }
         // Them gio hang
-        public ActionResult addCart(int iMaSP, string strUrl, int txtSoLuong)
+        public ActionResult addCart(int iMaSP, int txtSoLuong)
         {
 
             Product product = db.Products.SingleOrDefault(n => n.ID == iMaSP);
@@ -51,14 +51,14 @@ namespace EcomShoes_Webshop.Controllers
                 sp = new Cart(iMaSP);
                 sp.isoLuong = txtSoLuong;
                 lstCart.Add(sp);
-                return Redirect(strUrl);
+                return RedirectToAction("product_detail", "products", new { product.ID });
             }
             else
             {
 
                 sp.isoLuong = sp.isoLuong + txtSoLuong;
 
-                return Redirect(strUrl);
+                return RedirectToAction("product_detail", "products", new { product.ID });
             }
 
 

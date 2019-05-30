@@ -128,13 +128,11 @@ namespace EcomShoes_Webshop.Controllers
         public ActionResult Create(Order order)
         {
             if (ModelState.IsValid)
-            {
+            {           
                 List<Cart> cart = GetCart();
                 order.CreatedDate = DateTime.Now;
-                order.Status = 1;
-
+                order.Status = 0;
                 db.Orders.Add(order);
-
                 foreach(var item in cart)
                 {
                     OrderDetail orderdetail = new OrderDetail();
@@ -150,10 +148,10 @@ namespace EcomShoes_Webshop.Controllers
                     db.Entry(product).State = EntityState.Modified;
                 }
                 db.SaveChanges();
-
-                Session["Giohang"] = null;   
+                Session["Giohang"] = null;
+                return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("Index", "Home");
+            return View("~/Views/ManageOrders/Create.cshtml");
         }
 
         protected override void Dispose(bool disposing)

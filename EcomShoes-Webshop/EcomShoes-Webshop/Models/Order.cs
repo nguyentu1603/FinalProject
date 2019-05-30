@@ -15,7 +15,7 @@ namespace EcomShoes_Webshop.Models
     public partial class Order
     {
         public int id { get; set; }
-        public int OrderCode { get; set; }
+        public string OrderCode { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string ContactName { get; set; }
         public string ContactAddress { get; set; }

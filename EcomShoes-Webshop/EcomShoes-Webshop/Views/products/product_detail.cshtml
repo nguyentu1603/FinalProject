@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="col-md-4 single-right-left ">
                     <div class="grid images_3_of_2">
                         <div class="flexslider">
-                            <img src="@Url.Content("~/manageProducts/Image/"+Model.ID)" alt="">
+                            <img src="@Url.Content("~/manageProducts/Image/"+ Model.ID)" alt="">
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -72,21 +72,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="occasion-cart">
                         <div class="shoe single-item single_page_b">
-                            @using (Html.BeginForm("addCart", "ShoppingCart", new { @iMaSP = Model.ID, @strUrl = Request.Url.ToString() }))
+                            @using (Html.BeginForm("addCart", "ShoppingCart", new { @iMaSP = Model.ID }))
                             {
                             <h5>Quality :</h5>
                                 @Html.TextBox("txtSoLuong", 1, new { type = "number" })
-                                @Html.ValidationMessage("txtSoLuong")
-
-                                <i class="fas fa-shopping-cart"></i>
+                                @Html.ValidationMessage("txtSoLuong")               
                                     <a href="@Url.Action("ShoppingCart","ShoppingCart")" class="tong">
                                         <input type="submit" name="submit" value="Add to cart" class="button add">
                                     </a>
-
-
                             }
-
-
                         </div>
 
                     </div>
